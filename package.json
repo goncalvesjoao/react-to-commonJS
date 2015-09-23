@@ -1,0 +1,42 @@
+{
+  "name": "react-to-commonJS",
+  "version": "2.0.0",
+  "description": "A tool to help you build your react component and distribute it as a commonJS module.",
+  "main": "dist/index.js",
+  "bin": {
+    "r2c2": "bin/r2c2.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/goncalvesjoao/react-to-commonJS"
+  },
+  "author": "João Gonçalves",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/goncalvesjoao/react-to-commonJS/issues"
+  },
+  "homepage": "https://github.com/goncalvesjoao/react-to-commonJS#readme",
+  "keywords": [
+    "react",
+    "react-component",
+    "commonJS",
+    "module"
+  ],
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babel-eslint": "^4.1.2",
+    "eslint": "^1.4.3",
+    "eslint-plugin-react": "^3.3.2"
+  },
+  "dependencies": {
+    "commander": "^2.8.1",
+    "fs-extra": "^0.24.0",
+    "isbinaryfile": "^3.0.0",
+    "lodash": "^3.7.0"
+  },
+  "scripts": {
+    "build": "rm -rf ./dist && ./node_modules/.bin/babel ./src/ --out-dir ./dist/",
+    "lint": "./node_modules/.bin/eslint ./src/ ./test/",
+    "start": "npm run lint && ./node_modules/.bin/babel --watch ./src/ --out-dir ./dist/"
+  }
+}

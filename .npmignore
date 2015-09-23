@@ -1,0 +1,6 @@
+.DS_Store
+.eslintrc
+.npmignore
+*.log
+/node_modules
+/tmp
