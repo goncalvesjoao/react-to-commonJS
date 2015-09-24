@@ -6,8 +6,10 @@ const StarwarsDroidsExample = React.createClass({
   render() {
     return (
 
-      <section id='starwars_droids'>
-        <h2>StarwarsDroids</h2>
+      <div>
+        <div className='jumbotron'>
+          <h1>StarwarsDroids</h1>
+        </div>
 
         <div className='panel panel-default'>
           <div className='panel-heading'>
@@ -21,7 +23,7 @@ const StarwarsDroidsExample = React.createClass({
           <div className='panel-footer'>
             <Label bsSize='small'>Code:</Label>
             <p>
-              <code>{ '<StarwarsDroids \\>' }</code>
+              <code>{ '<StarwarsDroids />' }</code>
             </p>
           </div>
         </div>
@@ -38,11 +40,11 @@ const StarwarsDroidsExample = React.createClass({
           <div className='panel-footer'>
             <Label bsSize='small'>Code:</Label>
             <p>
-              <code>{ '<StarwarsDroids name={ false } \\>' }</code>
+              <code>{ '<StarwarsDroids name={ false } />' }</code>
             </p>
           </div>
         </div>
-      </section>
+      </div>
 
     );
   },

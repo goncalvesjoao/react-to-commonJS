@@ -24,6 +24,8 @@ module.exports = {
   },
 
   module: {
+    // Comment the eslint-loader preLoaders if you
+    // want to stop the eslint warning and error messages
     preLoaders: [
       {
         test: /\.js$/,
