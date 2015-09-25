@@ -1,3 +1,0 @@
---require test/support/mocha.js
---compilers js:babel/register
---reporter nyan

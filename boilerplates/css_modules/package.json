@@ -1,0 +1,68 @@
+{
+  "name": "my_react_component",
+  "version": "1.0.0",
+  "description": "my commonJS react component",
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "MIT",
+  "main": "dist/commonjs/index.js",
+
+  "//": "delete the 'spa' and 'start' entries if you don't need a web site to testing or document your react component",
+  "scripts": {
+    "start": "npm run spa",
+    "spa": "rm -rdf ./spa/tmp && ./node_modules/.bin/gulp --gulpfile ./spa/gulpfile.js",
+
+    "build": "npm run build-commonjs && ./node_modules/.bin/gulp build-standalone",
+    "build-commonjs": "rm -rdf ./dist/commonjs && ./node_modules/.bin/gulp build-commonjs",
+    "build-standalone": "rm -rdf ./dist/standalone && ./node_modules/.bin/gulp build-standalone",
+
+    "quick-test": "./node_modules/.bin/mocha ./test/**/*_spec.js",
+    "test": "rm -rdf ./coverage && npm run lint && node ./node_modules/.bin/babel-istanbul cover ./node_modules/.bin/_mocha ./test/**/*_spec.js",
+
+    "lint": "./node_modules/.bin/eslint ./src/ ./test/"
+  },
+
+  "//": "delete the 'spa' devDependencies entry if you don't need a web site to testing or document your react component",
+  "devDependencies": {
+    "spa": "file:./spa",
+
+    "babel": "^5.8.23",
+    "babel-core": "^5.8.25",
+
+    "gulp": "^3.8.11",
+    "webpack": "^1.9.5",
+    "gulp-babel": "^5.2.1",
+    "gulp-uglify": "^1.4.1",
+    "babel-loader": "^5.3.2",
+    "gulp-uglifycss": "^1.0.4",
+    "webpack-stream": "^2.0.0",
+
+    "eslint": "^1.5.1",
+    "estraverse": "^4.1.0",
+    "babel-eslint": "^4.1.3",
+    "eslint-loader": "^1.0.0",
+    "eslint-plugin-react": "^3.3.2",
+
+    "chai": "^3.2.0",
+    "jsdom": "^6.5.1",
+    "mocha": "^2.3.2",
+    "sinon": "^1.17.0",
+    "mockery": "^1.4.0",
+    "react-test-tree": "^0.3.1",
+
+    "babel-istanbul": "^0.3.20",
+
+    "css-loader": "^0.19.0",
+    "style-loader": "^0.12.3",
+    "extract-text-webpack-plugin": "^0.8.2"
+  },
+
+  "dependencies": {
+    "aja": "^0.4.0",
+    "react": "^0.13.3",
+    "react-css-modules": "^3.2.1"
+  }
+}

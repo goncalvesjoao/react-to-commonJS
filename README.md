@@ -14,9 +14,9 @@ $> r2c2 new my-component
 See **Usage** section for more information.
 
 ## Problems:
-- New front-end developers get overwhelmed by all the new tools and concepts they need to put together to build a React Component and being able to export it has a npm node package, ready to be used by the browser (commonJS);
+- New front-end developers get overwhelmed by all the new tools and concepts they need to put together to build a React Component and being able to export it has a npm node package, ready to be used by other npm packages or has a standalone project;
 - Not so new front-end developers don't want to deal with the pain of gathering all the necessary tools to build a React CommonJS project, everytime they create a new npm node package;
-- Most of the times when building a React Component you need a web page to preview and perfect your work;
+- Most of the time when building a React Component you need a web page to preview and perfect your work;
 - and some of the times you also need to mock API server responses to preview and perfect your component behaviour.
 
 ## What this solution, offers:
@@ -59,11 +59,11 @@ $> npm start
 
 - **Webpack** will be watching both the *spa/js* and your *src* directory, transpiling the code to plain javascript and updating your browser automatically, through **react-hot-loader**.
 
-- **Eslint** will be connected to **Webpack** to let you know when your changes do not meet the [Airbnb javascript  style guide](https://github.com/airbnb/javascript) (see **spa/config/webpack.js#preLoaders** section if you want to disable it).
+- **Eslint** will be connected to **Webpack** to let you know when your changes do not meet the [Airbnb javascript  style guide](https://github.com/airbnb/javascript) (you can disable it in *spa/config/spa.js*).
 
-- A **mock server** will be raise for each *spa/config/mock_servers/index.js* entry with the same port has the entry's port attribute. Each **mock server** file (listed on *spa/config/mock_servers/index.js*) will receive an **expressJS** instance and from that you get all the control you need to mock you API. (If you have no need for mock servers, you can just delete the *spa/config/mock_servers* directory).
+- A **mock server** will be raise for each *spa/mock_servers/index.js* entry with the same port has the entry's port attribute. Each **mock server** file (listed on *spa/mock_servers/index.js*) will receive an **expressJS** instance and from that you get all the control you need to mock you API. (If you have no need for mock servers, you can just delete the *spa/mock_servers* directory).
 
-- Each **expressJS** instance is already configured with **cors** to accept your **localhost:9000** requests and with **body-parser** to properly understand your requests submitted body. (If you need to make changes regarding these type of configurations checkout the *spa/config/gulpfile.js@launchMockServers* function)
+- Each **expressJS** instance is already configured with **cors** to accept your **localhost:9000** requests and with **body-parser** to properly understand your requests submitted body. (If you need to make changes regarding these type of configurations checkout the *spa/gulpfile.js@launchMockServers* function)
 
 ### 3. Testing
 ```
@@ -82,10 +82,27 @@ $> npm run quick-test
 ```
 $> npm run build
 ```
-- **babel** will run through your code and convert your **es6** and **jsx** code to plain Javascript, but will leave intact all the **require** mentions on your code so it can be properly imported by other **CommonJS** packages.
+- Will run two other tasks: **npm run build-commonjs** and **npm run build-standalone**.
 
-- Your **CommonJs** code will be exported to the *dist* directory.
-That is the reason why your prebuild **package.json#main** section points to *dist/index.js* and not *src/index.js*.
+```
+$> npm run build-commonjs
+```
+- **babel** will run through your code and convert your **es6** and **jsx** code to plain Javascript, but will leave intact all the **require** functions on your code so it can be properly imported by other **CommonJS** packages.
+
+- Your **CommonJS** code will be exported to the *dist/commonjs* directory. That is the reason why your prebuild **package.json#main** section points to *dist/commonjs/index.js* and not *src/index.js*.
+
+```
+$> npm run build-standalone
+```
+- Runs a **gulp** task that uses **webpack** to bundle up your code into a standalone single file and export it to the *dist/standalone* directory.
+
+- This build version, unlike the **CommonJS** one, will gather all the code referenced by a **require** function and bundle it all up on a single file.
+
+- Also. This task will create two directories: *dist/standalone/bundle* and *dist/standalone/minified* being that the later will contain a minified and uglified version of the first.
+
+PS: I don't recommend using the standalone version unless you know what packages you should or should not require on your source code upon building the standalone version.
+
+Keep in mind that if your standalone version incorporates React onto itself, when someone else includes your standalone version onto his React app, that person will effectively be importing 2 "Reacts" (yours thats inside your standalone version and the one he is already using on his app). The same goes to other libraries like jQuery for example.
 
 ### 5. Publishing
 - Cool video with instructions: https://docs.npmjs.com/getting-started/publishing-npm-packages
@@ -98,7 +115,8 @@ This tool was built using:
 - node 4.1.0
 - npm 3.3.3
 
-If you are having problems with your node version (node-gyp problems and such) and/or can't install npm version 3, here is what helped me:
+## Node troubleshoot:
+If you are having problems with your node version and/or can't install npm version 3, here is what helped me:
 
 - Remove node:
 ```

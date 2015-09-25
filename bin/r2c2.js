@@ -1,15 +1,22 @@
 #!/usr/bin/env node
+'use strict';
 
 const commander = require('commander');
 const reactToCommonJS = require('../dist');
 
-function newCommand(projectName) {
+function newCommand(projectName, options) {
   const newProject = reactToCommonJS(projectName);
   const destinationFolder = process.cwd() + '/' + newProject.name.snakeCase;
 
-  newProject.cloneBoilerplate(destinationFolder);
+  newProject.CloneBoilerplate.basic(options, destinationFolder);
 
-  newProject.npmInstall(destinationFolder, newProject.congratulations);
+  if (options.css_modules) {
+    newProject.CloneBoilerplate.cssModules(destinationFolder);
+  }
+
+  if (!options.noinstall) {
+    newProject.npmInstall(destinationFolder, newProject.congratulations);
+  }
 }
 
 function unknownCommand() {
@@ -20,6 +27,9 @@ commander.version(require('../package.json').version);
 
 commander.command('new <my-react-component>')
          .description('- generates a <my-react-component> folder with standard node and react tools : r2c2 new my-react-component')
+         .option('-f, --force', 'will not stop if your destination matches an existing project')
+         .option('-n, --noinstall', 'bypasses the npm install operation')
+         .option('-c, --css_modules', 'the small React example will be configured with react-css-modules')
          .action(newCommand);
 
 commander.command('*')

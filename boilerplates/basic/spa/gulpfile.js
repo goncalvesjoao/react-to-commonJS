@@ -1,10 +1,11 @@
 var fs = require('fs');
 var gulp = require('gulp');
-var config = require('./spa');
-var spaSrc = '../';
-var spaDist = '../tmp/';
+var srcDir = './';
+var distDir = './tmp/';
+var configDir = './config/';
 var browserSync = require('browser-sync').create();
 var defaultTasks = ['copy-public', 'compile-css', 'server', 'watch'];
+var config = require(configDir + 'spa');
 
 if (fs.existsSync('./mock_servers')) { defaultTasks.push('mock_servers'); }
 
@@ -14,8 +15,8 @@ gulp.task('compile-css', compileCss);
 gulp.task('copy-public', copyPublic);
 
 gulp.task('watch', function() {
-  gulp.watch(spaSrc + 'css/**/*', compileCss);
-  gulp.watch(spaSrc + 'public/**/*', copyPublic);
+  gulp.watch(srcDir + 'css/**/*', compileCss);
+  gulp.watch(srcDir + 'public/**/*', copyPublic);
 });
 
 gulp.task('server', launchServer);
@@ -28,17 +29,17 @@ function compileCss() {
   var sass = require('gulp-sass');
   var cssimport = require("gulp-cssimport");
 
-  gulp.src(spaSrc + 'css/index.scss')
+  gulp.src(srcDir + 'css/index.scss')
       .pipe(cssimport({ matchPattern: "*.css" }))
       .pipe(sass({ sync: true, onError: console.error }))
       .pipe(browserSync.reload({ stream: true }))
-      .pipe(gulp.dest(spaDist + 'css/index.css'));
+      .pipe(gulp.dest(distDir + 'css/index.css'));
 }
 
 function copyPublic() {
-  gulp.src(spaSrc + 'public/**/*')
+  gulp.src(srcDir + 'public/**/*')
       .pipe(browserSync.reload({ stream: true }))
-      .pipe(gulp.dest(spaDist));
+      .pipe(gulp.dest(distDir));
 }
 
 function launchServer() {
@@ -48,7 +49,7 @@ function launchServer() {
   var webpackDevMiddleware = require('webpack-dev-middleware');
   var webpackHotMiddleware = require('webpack-hot-middleware');
 
-  var webpackConfig = require('./webpack');
+  var webpackConfig = require(configDir + 'webpack');
   var bundler = webpack(webpackConfig);
 
   browserSync.init({
@@ -56,7 +57,7 @@ function launchServer() {
     port: config.serverPort,
 
     server: {
-      baseDir: spaDist,
+      baseDir: distDir,
 
       middleware: [
         webpackDevMiddleware(bundler, {
@@ -70,7 +71,7 @@ function launchServer() {
         function(req, res, next) {
           var fileName = url.parse(req.url);
           fileName = fileName.href.split(fileName.search).join("");
-          var fileExists = fs.existsSync(spaDist + fileName);
+          var fileExists = fs.existsSync(distDir + fileName);
 
           if (!fileExists && fileName.indexOf("browser-sync-client") < 0) {
             req.url = '/index.html';

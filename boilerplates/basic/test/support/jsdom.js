@@ -1,9 +1,3 @@
-global.React = require('react/addons');
-global.expect = require('chai').expect;
-global.TestTree = require('react-test-tree');
-global.TestUtils = global.React.addons.TestUtils;
-global.MyReactComponent = require('../../src');
-
 const jsdom = require('jsdom');
 
 // setup the simplest document possible
@@ -30,4 +24,3 @@ function propagateToGlobal(window) {
     global[key] = window[key];
   }
 }
-

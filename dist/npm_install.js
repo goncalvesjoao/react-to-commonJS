@@ -3,7 +3,7 @@
 function npmInstall(destinationFolder, callback) {
   var execute = require('child_process').exec;
 
-  console.log('\n  - Running "npm install" ...');
+  console.log('  - Running "npm install" ...');
 
   process.chdir(destinationFolder);
 

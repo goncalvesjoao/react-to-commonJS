@@ -1,6 +1,6 @@
 {
   "name": "react-to-commonjs",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "A tool to help you build your react component and distribute it as a commonJS module.",
   "main": "dist/index.js",
   "bin": {
@@ -20,7 +20,10 @@
     "react",
     "react-component",
     "commonJS",
-    "module"
+    "standalone",
+    "react-hot-loader",
+    "webpack",
+    "browser-sync"
   ],
   "devDependencies": {
     "babel": "^5.8.23",

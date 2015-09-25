@@ -17,6 +17,7 @@
     "CSSModules": true,
     "ReactBootstrap": true,
     "ReactRouter": true,
+    "mockery": true,
     "MyReactComponent": true,
 
     "TestTree": true,

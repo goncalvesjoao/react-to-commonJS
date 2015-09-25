@@ -1,5 +1,5 @@
-const config = require('../config');
 const aja = require('aja');
+const config = require('../config');
 
 const StarwarsDroids = React.createClass({
 
