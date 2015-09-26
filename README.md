@@ -1,28 +1,33 @@
 # react-to-commonjs2 AKA r2c2
-A tool to help you build your react component and distribute it as a commonJS module.
+A tool to help you build, test and preview your react component and distribute it as a commonJS module.
+
+Gathering and configuring the several different technologies necessary to build a React Component can be overwhelming for a novice and for a more experienced developer it becomes a repetitive process. Also when building a component to be used by other Apps, you'll need your own web page dedicated to preview and document the different ways you Component can be used.
+
+This is not a tool for creating full-fledged React Apps, nor to create Single Page Apps. Its a tool to help you build and distribute CommonJS and/or standalone React Components ready to be used by other people.
 
 ## Getting started:
 ```
 $> npm install react-to-commonjs -g
 ```
 This will install a binary called *r2c2*.
-
-With it you can create an empty npm node package with the basic tools that most of the React contributors are using and start writing your React code right of the bat.
 ```
 $> r2c2 new my-component
+$> cd my-component
+$> <your favorite editor> .
+$> npm start
 ```
 See **Usage** section for more information.
 
 ## Problems:
 - New front-end developers get overwhelmed by all the new tools and concepts they need to put together to build a React Component and being able to export it has a npm node package, ready to be used by other npm packages or has a standalone project;
-- Not so new front-end developers don't want to deal with the pain of gathering all the necessary tools to build a React CommonJS project, everytime they create a new npm node package;
+- More experienced developers don't want to deal with the pain of gathering all the necessary tools to build a React CommonJS project, everytime they create a new npm node package;
 - Most of the time when building a React Component you need a web page to preview and perfect your work;
 - and some of the times you also need to mock API server responses to preview and perfect your component behaviour.
 
 ## What this solution, offers:
 - package.json with common "scripts" and "devDependencies" for building, testing and coverage your react component;
-- Simple Single Page Application (SPA) project built with React (independent from you React project) with live reload, sass, etc. so you can preview and interact with your component;
-- One small React Component example and its correspondent Test spec for those that want to start learning and for the SPA to "show something".
+- Simple Single Page Application (SPA) project built with React (independent from you React project) with live reload, sass, etc. so you can preview and interact with your component (you might also wanna use this to document your Component so others might learn how to used it);
+- One small React Component example and its correspondent Test spec for those that are new to React and for the SPA to "show something".
 - Mock Servers so you can mimic what would be an API responding to your React Component (if it needs one).
 
 ## Usage:
@@ -32,7 +37,9 @@ See **Usage** section for more information.
 $> npm install react-to-commonjs -g
 $> r2c2 new my_component
 ```
-- This creates the following files: ![boilerplate_structure](https://raw.github.com/goncalvesjoao/react-to-commonjs/master/readme/boilerplate_structure.png)
+- This creates the following files:
+
+ ![boilerplate_structure](https://raw.github.com/goncalvesjoao/react-to-commonjs/master/readme/boilerplate_structure.png)
 
 - Be sure to fill in the missing **package.json** fields like "repository" and "author".
 
@@ -45,7 +52,7 @@ $> r2c2 new my_component
 ### 2. Developing
 ```
 $> cd my_component
-$> <open editor>
+<open the directory in your favorite editor>
 $> npm start
 <open browser on http:localhost:9000>
 ```

@@ -17,17 +17,7 @@ const ApiDocs = React.createClass({
             </div>
 
             <nav className="col-xs-3 bs-docs-sidebar">
-              <ul className='nav nav-stacked fixed'>
-                <h4><Link to='/api_docs'>MyReactComponent API</Link></h4>
-
-                <LiLink to='/api_docs/config'>config</LiLink>
-                <li>
-                  <Link to='/api_docs/components'>Components</Link>
-                  <ul className='nav nav-stacked'>
-                    <LiLink to='/api_docs/components/starwars_droids'>StarwarsDroids</LiLink>
-                  </ul>
-                </li>
-              </ul>
+              { this.renderLinks(true) }
             </nav>
 
           </div>
@@ -45,19 +35,42 @@ const ApiDocs = React.createClass({
 
         <div className='ascii'>
           <ul className='ascii'>
-            <li>MyReactComponent
-              <ul>
-                <li><Link to='/api_docs/config'>config</Link></li>
-                <li><Link to='/api_docs/components'>Components</Link>
-                  <ul>
-                    <li><Link to='/api_docs/components/starwars_droids'>StarwarsDroids</Link></li>
-                  </ul>
-                </li>
-              </ul>
+            <li>
+              <span>MyReactComponent</span>
+              { this.renderLinks() }
             </li>
           </ul>
         </div>
       </div>
+    );
+  },
+
+  renderLinks(sidebarMode) {
+    let title = '';
+    let ulClass = '';
+    let firstUlClass = '';
+
+    if (sidebarMode) {
+      title = <h4><Link to='/api_docs'>MyReactComponent API</Link></h4>;
+      ulClass = 'nav nav-stacked';
+      firstUlClass = ulClass + ' fixed';
+    }
+
+    return (
+
+      <ul className={ firstUlClass }>
+        { title }
+
+        <LiLink to='/api_docs/config'>config</LiLink>
+
+        <li>
+          <span>Components</span>
+          <ul className={ ulClass }>
+            <LiLink to='/api_docs/components/starwars_droids'>StarwarsDroids</LiLink>
+          </ul>
+        </li>
+      </ul>
+
     );
   },
 
