@@ -8,11 +8,16 @@ function newCommand(projectName, options) {
   const newProject = reactToCommonJS(projectName);
   const destinationFolder = process.cwd() + '/' + newProject.name.snakeCase;
 
-  newProject.CloneBoilerplate.basic(options, destinationFolder);
+  console.log('\n  - Creating your React project ...');
+  newProject.cloneBoilerplate(__dirname + '/../boilerplates/basic',
+                              destinationFolder, options);
 
   if (options.css_modules) {
-    newProject.CloneBoilerplate.cssModules(destinationFolder);
+    options.force = true;
+    newProject.cloneBoilerplate(__dirname + '/../boilerplates/css_modules',
+                                destinationFolder, options);
   }
+  console.log('  - Done\n');
 
   if (!options.noinstall) {
     newProject.npmInstall(destinationFolder, newProject.congratulations);

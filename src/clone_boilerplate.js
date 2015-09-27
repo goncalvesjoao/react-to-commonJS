@@ -1,39 +1,22 @@
+const _ = require('lodash');
 const fileUtils = require('./file_utils');
 
-function cloneBoilerplate(projectName) {
+function cloneBoilerplate(projectName, sourceDir, destinationDir, options) {
+  if (!options.force && fileUtils.exists(destinationDir)) {
+    fail('\n  - Error: "' + destinationDir + '" already exists!\n');
+  }
 
-  return { basic, cssModules };
+  fileUtils.copy(sourceDir,
+                 destinationDir,
+                 processFile.bind(null, projectName));
 
-  // ******************************** PROTECTED ********************************
+  _.each(['gitignore', 'eslintrc', 'npmignore'], function(fileName) {
+    const hiddenFile = destinationDir + '/' + fileName;
 
-  function basic(options, destinationFolder) {
-    console.log('\n  - Creating your React project ...');
-
-    if (!options.force && fileUtils.exists(destinationFolder)) {
-      fail('\n  - Error: "' + destinationFolder + '" already exists!\n');
+    if (fileUtils.exists(hiddenFile)) {
+      fileUtils.rename(hiddenFile, destinationDir + '/.' + fileName);
     }
-
-    fileUtils.copy(__dirname + '/../boilerplates/basic',
-                   destinationFolder,
-                   processFile.bind(null, projectName));
-
-    fileUtils.rename(destinationFolder + '/gitignore',
-                     destinationFolder + '/.gitignore');
-
-    fileUtils.rename(destinationFolder + '/eslintrc',
-                     destinationFolder + '/.eslintrc');
-
-    fileUtils.rename(destinationFolder + '/npmignore',
-                     destinationFolder + '/.npmignore');
-
-    console.log('  - Done\n');
-  }
-
-  function cssModules(destinationFolder) {
-    fileUtils.copy(__dirname + '/../boilerplates/css_modules',
-                   destinationFolder,
-                   processFile.bind(null, projectName));
-  }
+  });
 }
 
 module.exports = cloneBoilerplate;

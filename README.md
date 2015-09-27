@@ -1,9 +1,9 @@
 # react-to-commonjs2 AKA r2c2
 A tool to help you build, test and preview your react component and distribute it as a commonJS module.
 
-Gathering and configuring the several different technologies necessary to build a React Component can be overwhelming for a novice and for a more experienced developer it becomes a repetitive process. Also when building a component to be used by other Apps, you'll need your own web page dedicated to preview and document the different ways you Component can be used.
+Gathering and configuring the several different technologies necessary to build a React Component can be overwhelming for a novice and for a more experienced developer it becomes a repetitive process. Also, when building a component with the purpose of being used by other Apps, you'll need your own web page to preview and document the different ways your React Component can be used.
 
-This is not a tool for creating full-fledged React Apps, nor to create Single Page Apps. Its a tool to help you build and distribute CommonJS and/or standalone React Components ready to be used by other people.
+This is not a tool for creating full-fledged single page React Apps. Its a tool to help you build and distribute CommonJS (or standalone) React Components ready to be used by other people.
 
 ## Getting started:
 ```
@@ -109,12 +109,12 @@ $> npm run build-standalone
 
 PS: I don't recommend using the standalone version unless you know what packages you should or should not require on your source code upon building the standalone version.
 
-Keep in mind that if your standalone version incorporates React onto itself, when someone else includes your standalone version onto his React app, that person will effectively be importing 2 "Reacts" (yours thats inside your standalone version and the one he is already using on his app). The same goes to other libraries like jQuery for example.
+Keep in mind that **IF** your standalone version incorporates React onto itself, when someone else includes your standalone version onto his React app, that person will effectively be importing 2 "Reacts" (yours thats inside your standalone version and the one he is already using on his app). The same goes to other libraries like jQuery for example.
 
 ### 5. Publishing
 - Cool video with instructions: https://docs.npmjs.com/getting-started/publishing-npm-packages
 
-### 6. Using/importing your React Component on another project
+### 6. Importing your React Component on another project
 - TODO
 
 ## Notes:
