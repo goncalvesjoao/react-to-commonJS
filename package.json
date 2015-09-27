@@ -1,6 +1,6 @@
 {
   "name": "react-to-commonjs",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "A tool to help you build your react component and distribute it as a commonJS module.",
   "main": "dist/index.js",
   "bin": {
