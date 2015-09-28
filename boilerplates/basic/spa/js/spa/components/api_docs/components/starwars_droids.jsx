@@ -1,5 +1,5 @@
 const { StarwarsDroids } = MyReactComponent.Components;
-const { Label } = ReactBootstrap;
+const { Label } = require('react-bootstrap');
 
 const StarwarsDroidsExample = React.createClass({
 

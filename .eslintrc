@@ -13,12 +13,10 @@
 
   'globals': {
     "React": true,
-    "expect": true,
-    "CSSModules": true,
-    "ReactBootstrap": true,
     "ReactRouter": true,
-    "mockery": true,
     "MyReactComponent": true,
+    "expect": true,
+    "mockery": true,
 
     "TestTree": true,
     "describe": true,

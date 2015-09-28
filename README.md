@@ -28,7 +28,8 @@ See **Usage** section for more information.
 - package.json with common "scripts" and "devDependencies" for building, testing and coverage your react component;
 - Simple Single Page Application (SPA) project built with React (independent from you React project) with live reload, sass, etc. so you can preview and interact with your component (you might also wanna use this to document your Component so others might learn how to used it);
 - One small React Component example and its correspondent Test spec for those that are new to React and for the SPA to "show something".
-- Mock Servers so you can mimic what would be an API responding to your React Component (if it needs one).
+- Mock Servers so you can mimic what would be an API responding to your React Component (if it needs one);
+- Ability to export the SPA into a static web page for you to use has your React Component Github Page.
 
 ## Usage:
 
@@ -53,7 +54,7 @@ For a React Component with [React CSS Modules](https://github.com/gajus/react-cs
 
 - *spa* directory is a separate project that you can delete at will if you have no need for a web app where you can test and or document your component. ![spa_preview1](https://raw.github.com/goncalvesjoao/react-to-commonjs/master/readme/spa_preview1.png) ![spa_preview2](https://raw.github.com/goncalvesjoao/react-to-commonjs/master/readme/spa_preview2.png)
 
-- In case you delete the *spa* directory, remember to delete its **package.json#devDependencies** reference and the **package.json#scripts**, **start** and **spa** entries.
+- In case you delete the *spa* directory, remember to delete its **package.json#devDependencies** reference and the **package.json#scripts**, **start**, **spa** and **build-spa** entries.
 
 ### 2. Developing
 ```
@@ -118,7 +119,14 @@ PS: I don't recommend using the standalone version unless you know what packages
 Keep in mind that **IF** your standalone version incorporates React onto itself, when someone else includes your standalone version onto his React app, that person will effectively be importing 2 "Reacts" (yours thats inside your standalone version and the one he is already using on his app). The same goes to other libraries like jQuery for example.
 
 ### 5. Publishing
-- Cool video with instructions: https://docs.npmjs.com/getting-started/publishing-npm-packages
+- Cool video with instructions https://docs.npmjs.com/getting-started/publishing-npm-packages on how to publish your npm package.
+
+```
+$> npm run build-spa
+```
+- A static version of the SPA will be exported to *spa/dist*, so you can use it has a real web page for you to document or show examples on how to use your React Component.
+- Putting the *spa/dist* files on **Github Pages** will work just fine except for the **mock-servers**, but in this case you will probably be using a real API and not your mocks.
+- If your SPA files will not be at the root of your domain (e.g: domain.io/my_component), be sure to change **baseHref** entry on *spa/config/spa.js* (to "/my_component/") this will alter the path of your links and routes. Now the command **npm start** will serve your SPA on **localhost:9000/my_component** and exported files of **npm run build-spa** will be conscious of the new path.
 
 ### 6. Importing your React Component on another project
 - TODO

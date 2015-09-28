@@ -1,5 +1,6 @@
 const Header = require('./header');
 const Footer = require('./footer');
+const CSSModules = require('react-css-modules');
 
 const App = React.createClass({
   render() {

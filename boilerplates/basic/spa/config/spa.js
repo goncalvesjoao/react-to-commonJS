@@ -1,11 +1,20 @@
+var myReactComponentPackageJson = require('../../package.json');
+
 module.exports = {
 
-  serverPort: 9000,
+  html: {
+    baseHref: '/',
+    title: myReactComponentPackageJson.name,
+    author: myReactComponentPackageJson.author,
+    description: myReactComponentPackageJson.description,
+  },
 
   eslint: true,
 
+  serverPort: 9000,
+
   myReactComponent: {
-    vendor: Object.keys(require('../../package.json').dependencies),
+    vendor: Object.keys(myReactComponentPackageJson.dependencies),
   },
 
 };

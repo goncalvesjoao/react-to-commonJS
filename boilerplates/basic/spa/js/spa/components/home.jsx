@@ -1,5 +1,5 @@
 const { packageJson } = MyReactComponent;
-const { Panel } = ReactBootstrap;
+const { Panel } = require('react-bootstrap');
 
 const Home = React.createClass({
 

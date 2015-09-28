@@ -1,5 +1,6 @@
 const LiLink = require('./li_link');
 const { packageJson } = MyReactComponent;
+const CSSModules = require('react-css-modules');
 
 const Header = React.createClass({
 
@@ -15,7 +16,7 @@ const Header = React.createClass({
               <span className='icon-bar'></span>
               <span className='icon-bar'></span>
             </button>
-            <a href='/' className='navbar-brand'>MyReactComponent</a>
+            <a href='' className='navbar-brand'>MyReactComponent</a>
           </div>
 
           <nav className='collapse navbar-collapse select2-navbar-collapse' role='navigation'>
@@ -52,7 +53,7 @@ const Header = React.createClass({
       };
     }
 
-    return <a { ...props }><img styleName='github_icon' src='/imgs/github.png' /> GitHub</a>;
+    return <a { ...props }><img styleName='github_icon' src='imgs/github.png' /> GitHub</a>;
   },
 
 });

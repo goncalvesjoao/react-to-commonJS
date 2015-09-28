@@ -1,25 +1,25 @@
 {
   "name": "react-to-commonjs",
   "version": "2.1.3",
-  "description": "A tool to help you build your react component and distribute it as a commonJS module.",
+  "description": "A tool to help you build your React Component and distribute it as a commonJS module.",
   "main": "dist/index.js",
   "bin": {
     "r2c2": "bin/r2c2.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/goncalvesjoao/react-to-commonJS"
+    "url": "https://github.com/goncalvesjoao/react-to-commonjs"
   },
   "author": "João Gonçalves",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/goncalvesjoao/react-to-commonJS/issues"
+    "url": "https://github.com/goncalvesjoao/react-to-commonjs/issues"
   },
-  "homepage": "https://github.com/goncalvesjoao/react-to-commonJS#readme",
+  "homepage": "https://github.com/goncalvesjoao/react-to-commonjs#readme",
   "keywords": [
     "react",
     "react-component",
-    "commonJS",
+    "commonjs",
     "standalone",
     "react-hot-loader",
     "webpack",

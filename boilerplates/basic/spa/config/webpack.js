@@ -2,32 +2,38 @@ var _ = require('lodash');
 var webpack = require('webpack');
 var spaConfig = require('./spa');
 
-var config = {
-  entry: { index: './js/index.js' },
-  output: {
-    path: __dirname + '/js/',
-    publicPath: '/',
-    filename: 'js/[name].js',
-    chunkFilename: 'js/[id]' + (+(new Date())) + '-chunk.js',
-  },
-  module: {
-    preLoaders: [],
-    loaders: [
-      { test: /\.jsx$/, exclude: /node_modules/, loaders: ['react-hot', 'babel-loader'] },
-      { test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader'] },
-      { test: /\.json$/, include: /\.json$/, loaders: ['json-loader'] }
-    ]
-  },
-  resolve: { extensions: ['', '.js', '.jsx'] },
-  plugins: []
-};
+function webpackConfig(productionMode) {
+  var config = {
+    entry: { index: './js/index.js' },
+    output: {
+      path: __dirname + '/../tmp' + spaConfig.html.baseHref,
+      publicPath: spaConfig.html.baseHref,
+      filename: 'js/[name].js',
+      chunkFilename: 'js/[id]' + (+(new Date())) + '-chunk.js',
+    },
+    module: {
+      preLoaders: [],
+      loaders: [
+        { test: /\.jsx$/, exclude: /node_modules/, loaders: ['react-hot', 'babel-loader'] },
+        { test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader'] },
+        { test: /\.json$/, include: /\.json$/, loaders: ['json-loader'] }
+      ]
+    },
+    resolve: { extensions: ['', '.js', '.jsx'] },
+    plugins: []
+  };
 
-enableEslint(config);
-enableVendor(config);
-enableCssModules(config);
-enableHotReload(config);
+  enableEslint(config);
+  enableVendor(config, productionMode);
+  config.plugins.push(new webpack.optimize.OccurenceOrderPlugin());
+  enableCssModules(config);
+  enableHotReload(config, productionMode);
+  config.plugins.push(new webpack.NoErrorsPlugin());
 
-module.exports = config;
+  return config;
+}
+
+module.exports = webpackConfig;
 
 // ********************************* PROTECTED *********************************
 
@@ -53,15 +59,18 @@ function enableEslint(config) {
   });
 }
 
-function enableVendor(config) {
+function enableVendor(config, productionMode) {
+  var reactHot = productionMode ? [] : [
+    'webpack/hot/dev-server',
+    'webpack-hot-middleware/client'
+  ];
+
   config.entry.vendor = _.union(spaConfig.myReactComponent.vendor, [
     'react',
     'react-router',
     'react-css-modules',
     'react-bootstrap',
-    'webpack/hot/dev-server',
-    'webpack-hot-middleware/client',
-  ]);
+  ], reactHot);
 
   config.plugins.push(new webpack.optimize.CommonsChunkPlugin('vendor', 'js/vendor.js'))
 }
@@ -77,9 +86,9 @@ function enableCssModules(config) {
   config.plugins.push(new ExtractTextPlugin('css/react_css_modules.css', { allChunks: true }));
 }
 
-function enableHotReload(config) {
-  config.plugins.push(new webpack.optimize.OccurenceOrderPlugin());
+function enableHotReload(config, productionMode) {
+  if (productionMode) { return false; }
+
   config.plugins.push(new webpack.HotModuleReplacementPlugin());
   config.plugins.push(new webpack.OldWatchingPlugin());
-  config.plugins.push(new webpack.NoErrorsPlugin());
 }

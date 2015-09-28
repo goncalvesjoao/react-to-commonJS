@@ -1,5 +1,4 @@
 const routes = {
-  path: '',
   component: require('./components/layout'),
   childRoutes: [
     {
