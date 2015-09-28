@@ -37,7 +37,13 @@ See **Usage** section for more information.
 $> npm install react-to-commonjs -g
 $> r2c2 new my_component
 ```
-- This creates the following files:
+or
+```
+$> r2c2 new my_component --css_modules
+```
+For a React Component with [React CSS Modules](https://github.com/gajus/react-css-modules) installed and configured. **npm run build** in this case, will not also export your code but your css too.
+
+- The "new" command creates the following files:
 
  ![boilerplate_structure](https://raw.github.com/goncalvesjoao/react-to-commonjs/master/readme/boilerplate_structure.png)
 

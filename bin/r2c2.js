@@ -9,14 +9,7 @@ function newCommand(projectName, options) {
   const destinationFolder = process.cwd() + '/' + newProject.name.snakeCase;
 
   console.log('\n  - Creating your React project ...');
-  newProject.cloneBoilerplate(__dirname + '/../boilerplates/basic',
-                              destinationFolder, options);
-
-  if (options.css_modules) {
-    options.force = true;
-    newProject.cloneBoilerplate(__dirname + '/../boilerplates/css_modules',
-                                destinationFolder, options);
-  }
+  newProject.cloneBoilerplates(destinationFolder, options);
   console.log('  - Done\n');
 
   if (!options.noinstall) {
