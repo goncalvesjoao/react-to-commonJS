@@ -30,6 +30,10 @@ const Home = React.createClass({
           <Panel>
             <code>npm install { config.name } --save</code>
           </Panel>
+          <p>or</p>
+          <Panel>
+            <code>npm install git+https://git@github.com:{ config.author || '<package.json:author>' }/{ config.name || '<package.json:name>' }.git#master --save</code>
+          </Panel>
         </div>
       </div>
     );
