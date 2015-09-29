@@ -1,5 +1,3 @@
 module.exports = {
-  starwarsMicroService: {
-    url: 'http://api.starwars.com',
-  },
+  url: 'http://api.starwars.com',
 };

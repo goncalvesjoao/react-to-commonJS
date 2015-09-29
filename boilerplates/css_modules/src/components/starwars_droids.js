@@ -1,4 +1,4 @@
-const aja = require('aja');
+const jQuery = require('jquery');
 const config = require('../config');
 const CSSModules = require('react-css-modules');
 
@@ -9,8 +9,10 @@ const StarwarsDroids = React.createClass({
   getInitialState() { return { droids: [] }; },
 
   componentWillMount() {
-    aja().url(config.starwarsMicroService.url + '/v0/droids')
-         .on('success', (data) => { this.setState({ droids: data }); }).go();
+    jQuery.ajax({
+      url: config.url + '/v0/droids',
+      success: (data) => { this.setState({ droids: data }); },
+    });
   },
 
   render() {

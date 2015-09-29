@@ -3,7 +3,7 @@ window.ReactRouter = require('react-router');
 
 window.MyReactComponent = require('../../src');
 window.MyReactComponent.packageJson = require('../../package.json');
-window.MyReactComponent.config.starwarsMicroService.url = 'http://localhost:9090';
+window.MyReactComponent.config.url = 'http://localhost:9090';
 
 // Bootstraping your single page app
 const { createHistory, useBasename } = require('history');
