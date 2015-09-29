@@ -86,7 +86,7 @@ function enableCssModules(config) {
     loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]')
   });
 
-  config.plugins.push(new ExtractTextPlugin('css/react_css_modules.css', { allChunks: true }));
+  config.plugins.push(new ExtractTextPlugin('css/react_css_modules/[name].css', { allChunks: true }));
 }
 
 function enableHotReload(config, productionMode) {
