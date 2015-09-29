@@ -54,7 +54,7 @@ For a React Component with [React CSS Modules](https://github.com/gajus/react-cs
 
 - *spa* directory is a separate project that you can delete at will if you have no need for a web app where you can test and or document your component. ![spa_preview1](https://raw.github.com/goncalvesjoao/react-to-commonjs/master/readme/spa_preview1.png) ![spa_preview2](https://raw.github.com/goncalvesjoao/react-to-commonjs/master/readme/spa_preview2.png)
 
-- In case you delete the *spa* directory, remember to delete its **package.json#devDependencies** reference and the **package.json#scripts**, **start**, **spa** and **build-spa** entries.
+- In case you delete the *spa* directory, remember to delete its **package.json#devDependencies** reference and the **package.json#scripts**, **start**, **spa** and **build-docs** entries.
 
 ### 2. Developing
 ```
@@ -122,11 +122,11 @@ Keep in mind that **IF** your standalone version incorporates React onto itself,
 - Cool video with instructions https://docs.npmjs.com/getting-started/publishing-npm-packages on how to publish your npm package.
 
 ```
-$> npm run build-spa
+$> npm run build-docs
 ```
-- A static version of the SPA will be exported to *spa/dist*, so you can use it has a real web page for you to document or show examples on how to use your React Component.
-- Putting the *spa/dist* files on **Github Pages** will work just fine except for the **mock-servers**, but in this case you will probably be using a real API and not your mocks.
-- If your SPA files will not be at the root of your domain (e.g: domain.io/my_component), be sure to change **baseHref** entry on *spa/config/spa.js* (to "/my_component/") this will alter the path of your links and routes. Now the command **npm start** will serve your SPA on **localhost:9000/my_component** and exported files of **npm run build-spa** will be conscious of the new path.
+- A static version of the SPA will be exported to *docs* directory, so you can use it has a real web page for you to document or show examples on how to use your React Component.
+- Uploading the *docs* files on **Github Pages** will work just fine except for the **mock-servers**, but in this case you will probably be using a real API and not your mocks.
+- If your SPA files' location will not be the root path of your domain (e.g: domain.io/my_component), be sure to change **baseHref** entry on *spa/config/spa.js* (to "/my_component/") this will alter the path of your links and routes. Now the command **npm start** will serve your SPA on **localhost:9000/my_component** and exported files of **npm run build-docs** will be conscious of the new path.
 
 ### 6. Importing your React Component on another project
 - TODO

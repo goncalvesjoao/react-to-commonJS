@@ -10,11 +10,11 @@
   "license": "MIT",
   "main": "dist/commonjs/index.js",
 
-  "//": "delete the 'start', 'spa', 'build-spa' entries if you don't need a web site to testing or document your react component",
+  "//": "delete the 'start', 'spa', 'build-docs' entries if you don't need a web site to testing or document your react component",
   "scripts": {
     "start": "npm run spa",
     "spa": "rm -rdf ./spa/tmp && ./node_modules/.bin/gulp --gulpfile ./spa/gulpfile.js",
-    "build-spa": "rm -rdf ./spa/dist && ./node_modules/.bin/gulp build --gulpfile ./spa/gulpfile.js",
+    "build-docs": "rm -rdf ./docs && ./node_modules/.bin/gulp build --gulpfile ./spa/gulpfile.js",
 
     "build": "npm run build-commonjs && ./node_modules/.bin/gulp build-standalone",
     "build-commonjs": "rm -rdf ./dist/commonjs && ./node_modules/.bin/gulp build-commonjs",

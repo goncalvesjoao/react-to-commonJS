@@ -13,7 +13,7 @@ module.exports = {
 
   serverPort: 9000,
 
-  myReactComponent: {
+  MyReactComponent: {
     vendor: Object.keys(myReactComponentPackageJson.dependencies),
   },
 

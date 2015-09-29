@@ -30,7 +30,7 @@ gulp.task('mock_servers', launchMockServers)
 // ********************************* PROTECTED *********************************
 
 function build() {
-  distDir = './dist/';
+  distDir = '../docs/';
   webpackConfig = webpackConfig(true);
 
   compileHtml(null, true);

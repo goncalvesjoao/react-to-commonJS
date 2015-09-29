@@ -65,7 +65,7 @@ function enableVendor(config, productionMode) {
     'webpack-hot-middleware/client'
   ];
 
-  config.entry.vendor = _.union(spaConfig.myReactComponent.vendor, [
+  config.entry.vendor = _.union(spaConfig.MyReactComponent.vendor, [
     'react',
     'react-router',
     'react-css-modules',

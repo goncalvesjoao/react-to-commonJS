@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "start": "rm -rdf ./tmp && ./node_modules/.bin/gulp",
-    "build": "rm -rdf ./dist && ./node_modules/.bin/gulp build"
+    "build": "rm -rdf ../docs && ./node_modules/.bin/gulp build"
   },
   "dependencies": {
     "gulp": "^3.8.11",
