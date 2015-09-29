@@ -7,7 +7,7 @@ function Starwars(app) {
     { id: 4, name: 'Probe Droid', avatar: 'imgs/probe_droid.jpg' },
   ];
 
-  app.get('/v0/droids', function(request, response) {
+  app.get('/droids.json', function(request, response) {
     response.json(droids);
   });
 

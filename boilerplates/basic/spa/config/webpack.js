@@ -2,12 +2,15 @@ var _ = require('lodash');
 var webpack = require('webpack');
 var spaConfig = require('./spa');
 
-function webpackConfig(productionMode) {
+function webpackConfig(environment) {
+  var productionMode = (environment === 'production');
+  var appConfig = spaConfig.appConfig[environment];
+
   var config = {
     entry: { index: './js/index.js' },
     output: {
-      path: __dirname + '/../tmp' + spaConfig.html.baseHref,
-      publicPath: spaConfig.html.baseHref,
+      path: __dirname + '/../tmp' + appConfig.baseHref,
+      publicPath: appConfig.baseHref,
       filename: 'js/[name].js',
       chunkFilename: 'js/[id]' + (+(new Date())) + '-chunk.js',
     },

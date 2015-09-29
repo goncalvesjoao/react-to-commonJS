@@ -27,6 +27,3 @@ node_modules
 tmp
 
 .DS_Store
-
-# SPA docs
-docs

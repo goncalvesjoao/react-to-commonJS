@@ -1,9 +1,12 @@
 window.React = require('react/addons');
 window.ReactRouter = require('react-router');
-
 window.MyReactComponent = require('../../src');
-window.MyReactComponent.packageJson = require('../../package.json');
-window.MyReactComponent.config.url = 'http://localhost:9090';
+
+// Configuring MyReactComponent
+// window.appConfig is being populated on public/index.html
+// that in turn is being populated by spa/config/spa.js#appConfig entry.
+const _ = require('lodash');
+_.assign(window.MyReactComponent.config, window.appConfig);
 
 // Bootstraping your single page app
 const { createHistory, useBasename } = require('history');

@@ -1,12 +1,21 @@
+var _ = require('lodash');
 var myReactComponentPackageJson = require('../../package.json');
+var application = _.pick(myReactComponentPackageJson,
+  ['name', 'version', 'author', 'repository', 'description']);
 
 module.exports = {
 
-  html: {
-    baseHref: '/',
-    title: myReactComponentPackageJson.name,
-    author: myReactComponentPackageJson.author,
-    description: myReactComponentPackageJson.description,
+  appConfig: {
+    development: _.assign({}, application, {
+      baseHref: '/',
+      url: 'http://localhost:9090/',
+      environment: 'development',
+    }),
+
+    production: _.assign({}, application, {
+      baseHref: '/',
+      environment: 'production',
+    }),
   },
 
   eslint: true,

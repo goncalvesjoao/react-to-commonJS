@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>{{ title }}</title>
+    <title>{{ name }}</title>
     <base href="{{ baseHref }}"></base>
     <meta name="author" content="{{ author }}">
     <meta name="description" content="{{ description }}">
@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/react_css_modules.css">
 
+    <script type="text/javascript">
+      window.appConfig = JSON.parse('{{{ appConfig }}}');
+    </script>
     <script type="text/javascript" src="js/vendor.js"></script>
   </head>
 

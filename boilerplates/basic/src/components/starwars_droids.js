@@ -9,7 +9,8 @@ const StarwarsDroids = React.createClass({
 
   componentWillMount() {
     jQuery.ajax({
-      url: config.url + '/v0/droids',
+      url: config.url + 'droids.json',
+      dataType: 'json',
       success: (data) => { this.setState({ droids: data }); },
     });
   },

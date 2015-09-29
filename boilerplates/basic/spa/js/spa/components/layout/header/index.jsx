@@ -1,5 +1,5 @@
 const LiLink = require('./li_link');
-const { packageJson } = MyReactComponent;
+const { config } = MyReactComponent;
 const CSSModules = require('react-css-modules');
 
 const Header = React.createClass({
@@ -38,7 +38,7 @@ const Header = React.createClass({
   repositoryLink() {
     const props = { href: '' };
 
-    if (packageJson.repository) { props.href = packageJson.repository.url; }
+    if (config.repository) { props.href = config.repository.url; }
 
     if (props.href) {
       props.target = '_blank';

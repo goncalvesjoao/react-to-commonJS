@@ -1,6 +1,6 @@
 {
   "name": "spa",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "single page app to help develop, test and document your React Component",
   "repository": {
     "type": "git",

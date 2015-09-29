@@ -1,4 +1,4 @@
-const { packageJson } = MyReactComponent;
+const { config } = MyReactComponent;
 const { Panel } = require('react-bootstrap');
 
 const Home = React.createClass({
@@ -11,15 +11,15 @@ const Home = React.createClass({
           <div className='container'>
             <div className='row'>
               <div className='col-md-7 text-center'>
-                <h1>{ packageJson.name }</h1>
+                <h1>{ config.name }</h1>
                 <p className='lead'>
-                  { packageJson.description }
+                  { config.description }
                 </p>
               </div>
               <div className='col-md-5 jumbotron-side text-center'>
                 <p>&nbsp;</p>
                 <p>{ this.repositoryLink() }</p>
-                <p><strong>Version</strong> { packageJson.version }</p>
+                <p><strong>Version</strong> { config.version }</p>
               </div>
             </div>
           </div>
@@ -28,7 +28,7 @@ const Home = React.createClass({
         <div className='container'>
           <h2>Getting started:</h2>
           <Panel>
-            <code>npm install { packageJson.name } --save</code>
+            <code>npm install { config.name } --save</code>
           </Panel>
         </div>
       </div>
@@ -38,7 +38,7 @@ const Home = React.createClass({
   repositoryLink() {
     const props = { href: '' };
 
-    if (packageJson.repository) { props.href = packageJson.repository.url; }
+    if (config.repository) { props.href = config.repository.url; }
 
     if (props.href) {
       props.href += '/releases';

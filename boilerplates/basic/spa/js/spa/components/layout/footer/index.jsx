@@ -1,7 +1,7 @@
-const { packageJson } = MyReactComponent;
+const { config } = MyReactComponent;
 let author = '<package.json:author>';
 
-if (packageJson.author) { author = packageJson.author; }
+if (config.author) { author = config.author; }
 
 class Footer extends React.Component {
   render() {

@@ -2,85 +2,84 @@ var fs = require('fs');
 var gulp = require('gulp');
 var srcDir = './';
 var configDir = './config/';
+var spaConfig = require(configDir + 'spa');
 var browserSync = require('browser-sync').create();
-var defaultTasks = ['copy-public', 'compile-html', 'compile-css', 'server', 'watch'];
-var webpackConfig = require(configDir + 'webpack');
-var config = require(configDir + 'spa');
-var distDir = './tmp' + config.html.baseHref;
+var environment = 'development';
+var distDir = './tmp' + spaConfig.appConfig[environment].baseHref;
 
-if (fs.existsSync('./mock_servers')) { defaultTasks.push('mock_servers'); }
-
-gulp.task('default', defaultTasks);
 gulp.task('build', build);
-
+gulp.task('server', launchServer);
+gulp.task('copy-public', copyPublic);
 gulp.task('compile-css', compileCss);
 gulp.task('compile-html', compileHtml);
-gulp.task('copy-public', copyPublic);
-
+gulp.task('mock_servers', launchMockServers)
 gulp.task('watch', function() {
   gulp.watch(srcDir + 'css/**/*', compileCss);
   gulp.watch(srcDir + 'public/**/*.html', compileHtml);
   gulp.watch([srcDir + 'public/**/*', '!' + srcDir + 'public/**/*.html'], copyPublic);
 });
 
-gulp.task('server', launchServer);
-
-gulp.task('mock_servers', launchMockServers)
+var defaultTasks = ['copy-public', 'compile-html', 'compile-css', 'server', 'watch'];
+if (fs.existsSync('./mock_servers')) { defaultTasks.push('mock_servers'); }
+gulp.task('default', defaultTasks);
 
 // ********************************* PROTECTED *********************************
 
 function build() {
-  distDir = '../docs/';
-  webpackConfig = webpackConfig(true);
+  environment = 'production';
+  distDir = '../docs' + spaConfig.appConfig[environment].baseHref;
+  var webpackConfig = require(configDir + 'webpack')(environment);
 
-  compileHtml(null, true);
-  copyPublic(null, true);
-  compileCss(null, true);
+  compileHtml();
+  copyPublic();
+  compileCss();
 
   gulp.src(srcDir + 'index.js')
       .pipe(require('webpack-stream')(webpackConfig))
       .pipe(gulp.dest(distDir));
 }
 
-function compileCss(next, productionMode) {
+function compileCss() {
   var sass = require('gulp-sass');
   var cssimport = require("gulp-cssimport");
 
   gulp.src(srcDir + 'css/index.scss')
       .pipe(cssimport({ matchPattern: "*.css" }))
       .pipe(sass({ sync: true, onError: console.error }))
-      .pipe(updateBrowser(productionMode))
+      .pipe(updateBrowser())
       .pipe(gulp.dest(distDir + 'css/index.css'));
 }
 
-function compileHtml(next, productionMode) {
+function compileHtml() {
+  var _ = require('lodash');
   var build = require('gulp-build');
+  var appConfig = _.assign({
+    appConfig: JSON.stringify(spaConfig.appConfig[environment])
+  }, spaConfig.appConfig[environment]);
 
   gulp.src(srcDir + 'public/**/*.html')
-      .pipe(build(config.html))
-      .pipe(updateBrowser(productionMode))
+      .pipe(build(appConfig))
+      .pipe(updateBrowser())
       .pipe(gulp.dest(distDir));
 }
 
-function copyPublic(next, productionMode) {
+function copyPublic() {
   gulp.src([srcDir + 'public/**/*', '!' + srcDir + 'public/**/*.html'])
-      .pipe(updateBrowser(productionMode))
+      .pipe(updateBrowser())
       .pipe(gulp.dest(distDir));
 }
 
 function launchServer() {
-  var fs  = require('fs');
   var url = require('url');
   var webpack = require('webpack');
   var webpackDevMiddleware = require('webpack-dev-middleware');
   var webpackHotMiddleware = require('webpack-hot-middleware');
-
-  webpackConfig = webpackConfig(false);
+  var webpackConfig = require(configDir + 'webpack')(environment);
   var bundler = webpack(webpackConfig);
 
   browserSync.init({
     open: false,
-    port: config.serverPort,
+    port: spaConfig.serverPort,
 
     server: {
       baseDir: './tmp/',
@@ -100,7 +99,7 @@ function launchServer() {
           var fileExists = fs.existsSync('./tmp/' + fileName);
 
           if (!fileExists && fileName.indexOf("browser-sync-client") < 0) {
-            req.url = config.html.baseHref + 'index.html';
+            req.url = spaConfig.appConfig[environment].baseHref + 'index.html';
           }
           return next();
         },
@@ -116,7 +115,7 @@ function launchMockServers() {
     var app         = require('express')(),
         cors        = require('cors'),
         bodyParser  = require('body-parser'),
-        whitelist   = ['http://localhost:' + config.serverPort],
+        whitelist   = ['http://localhost:' + spaConfig.serverPort],
         options     = {
           origin: function(origin, callback) {
             callback(null, (whitelist.indexOf(origin) !== -1));
@@ -133,10 +132,10 @@ function launchMockServers() {
   });
 }
 
-function updateBrowser(productionMode) {
+function updateBrowser() {
   var through2 = require('through2');
 
-  if (productionMode) {
+  if (environment === 'production') {
     return through2.obj(function bypassBrowserUpdate(file, encoding, callback) {
       callback(null, file);
     });
