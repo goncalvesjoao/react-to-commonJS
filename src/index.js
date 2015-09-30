@@ -1,19 +1,21 @@
-function reactToCommonJS(name) {
-  const projectName = require('./project_name')(name);
+function reactToCommonJS(name, destinationDir, boilerplateName) {
+  const config = {
+    name: name,
+    boilerplateName: boilerplateName,
+    destinationDir: destinationDir,
+  };
 
   return {
-    name: projectName,
-    npmInstall: require('./npm_install'),
-    congratulations: require('./congratulations').bind(null, projectName),
-    cloneBoilerplate: require('./clone_boilerplate').bind(null, projectName),
-    cloneBoilerplates: function cloneBoilerplates(destinationFolder, options) {
-      this.cloneBoilerplate(__dirname + '/../boilerplates/basic',
-                            destinationFolder, options);
+    config: config,
+    npmInstall: require('./npm_install').bind(null, config),
+    congratulations: require('./congratulations').bind(null, config),
+    cloneBoilerplate: require('./clone_boilerplate').bind(null, config),
+    cloneBoilerplates: function cloneBoilerplates(options) {
+      this.cloneBoilerplate(__dirname + '/../boilerplates/basic', options);
 
       if (options.css_modules) {
         options.force = true;
-        this.cloneBoilerplate(__dirname + '/../boilerplates/css_modules',
-                              destinationFolder, options);
+        this.cloneBoilerplate(__dirname + '/../boilerplates/css_modules', options);
       }
     },
   };

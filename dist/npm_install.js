@@ -1,11 +1,10 @@
 'use strict';
 
-function npmInstall(destinationFolder, callback) {
+function npmInstall(config, callback) {
+  var project = require('./project')(config);
   var execute = require('child_process').exec;
 
-  console.log('  - Running "npm install" ...');
-
-  process.chdir(destinationFolder);
+  process.chdir(project.destinationDir);
 
   execute('npm install', function (error, stdout, stderr) {
     if (error) {

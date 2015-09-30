@@ -1,9 +1,8 @@
-function npmInstall(destinationFolder, callback) {
+function npmInstall(config, callback) {
+  const project = require('./project')(config);
   const execute = require('child_process').exec;
 
-  console.log('  - Running "npm install" ...');
-
-  process.chdir(destinationFolder);
+  process.chdir(project.destinationDir);
 
   execute('npm install', (error, stdout, stderr) => {
     if (error) {

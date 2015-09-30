@@ -1,20 +1,22 @@
 const _ = require('lodash');
 const fileUtils = require('./file_utils');
 
-function cloneBoilerplate(projectName, sourceDir, destinationDir, options) {
-  if (!options.force && fileUtils.exists(destinationDir)) {
-    fail('\n  - Error: "' + destinationDir + '" already exists!\n');
+function cloneBoilerplate(config, sourceDir, options) {
+  const project = require('./project')(config);
+
+  if (!options.force && fileUtils.exists(project.destinationDir)) {
+    fail('\n  - Error: "' + project.destinationDir + '" already exists!\n');
   }
 
   fileUtils.copy(sourceDir,
-                 destinationDir,
-                 processFile.bind(null, projectName));
+                 project.destinationDir,
+                 processFile.bind(null, project.name));
 
   _.each(['gitignore', 'eslintrc', 'npmignore'], function(fileName) {
-    const hiddenFile = destinationDir + '/' + fileName;
+    const hiddenFile = project.destinationDir + '/' + fileName;
 
     if (fileUtils.exists(hiddenFile)) {
-      fileUtils.rename(hiddenFile, destinationDir + '/.' + fileName);
+      fileUtils.rename(hiddenFile, project.destinationDir + '/.' + fileName);
     }
   });
 }

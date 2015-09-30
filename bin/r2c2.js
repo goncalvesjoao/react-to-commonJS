@@ -5,20 +5,25 @@ const commander = require('commander');
 const reactToCommonJS = require('../dist');
 
 function newCommand(projectName, options) {
-  const newProject = reactToCommonJS(projectName);
-  const destinationFolder = process.cwd() + '/' + newProject.name.snakeCase;
+  const newProject = reactToCommonJS(
+    projectName,
+    process.cwd() + '/',
+    {
+      fullName: /MyReactComponent/g,
+      camelCase: /myReactComponent/g,
+      snakeCase: /my_react_component/g,
+      screamCase: /MY_REACT_COMPONENT/g,
+    }
+  );
 
   console.log('\n  - Creating your React project ...');
-  newProject.cloneBoilerplates(destinationFolder, options);
+  newProject.cloneBoilerplates(options);
   console.log('  - Done\n');
 
   if (!options.noinstall) {
-    newProject.npmInstall(destinationFolder, newProject.congratulations);
+    console.log('  - Running "npm install" ...');
+    newProject.npmInstall(newProject.congratulations);
   }
-}
-
-function unknownCommand() {
-  console.log('unknown command');
 }
 
 commander.version(require('../package.json').version);
@@ -32,7 +37,7 @@ commander.command('new <my-react-component>')
 
 commander.command('*')
          .description('- unknown command')
-         .action(unknownCommand);
+         .action(() => { console.log('unknown command'); });
 
 commander.parse(process.argv);
 

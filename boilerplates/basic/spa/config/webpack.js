@@ -1,10 +1,10 @@
 var _ = require('lodash');
 var webpack = require('webpack');
-var spaConfig = require('./spa');
+var application = require('./application');
 
 function webpackConfig(environment) {
   var productionMode = (environment === 'production');
-  var appConfig = spaConfig.appConfig[environment];
+  var appConfig = application.appConfig[environment];
 
   var config = {
     entry: { index: './js/index.js' },
@@ -18,7 +18,7 @@ function webpackConfig(environment) {
       preLoaders: [],
       loaders: [
         { test: /\.jsx$/, exclude: /node_modules/, loaders: ['react-hot', 'babel-loader'] },
-        { test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader'] },
+        { test: /\.js$/, exclude: /node_modules/, loaders: ['react-hot', 'babel-loader'] },
         { test: /\.json$/, include: /\.json$/, loaders: ['json-loader'] }
       ]
     },
@@ -41,7 +41,7 @@ module.exports = webpackConfig;
 // ********************************* PROTECTED *********************************
 
 function enableEslint(config) {
-  if (!spaConfig.eslint) { return false; }
+  if (!application.eslint) { return false; }
 
   try {
     require.resolve('eslint-loader');
@@ -68,7 +68,7 @@ function enableVendor(config, productionMode) {
     'webpack-hot-middleware/client'
   ];
 
-  config.entry.vendor = _.union(spaConfig.MyReactComponent.vendor, [
+  config.entry.vendor = _.union(application.vendorDependencies, [
     'react',
     'react-router',
     'react-css-modules',

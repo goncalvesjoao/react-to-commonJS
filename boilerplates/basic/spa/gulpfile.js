@@ -2,10 +2,10 @@ var fs = require('fs');
 var gulp = require('gulp');
 var srcDir = './';
 var configDir = './config/';
-var spaConfig = require(configDir + 'spa');
+var application = require(configDir + 'application');
 var browserSync = require('browser-sync').create();
 var environment = 'development';
-var distDir = './tmp' + spaConfig.appConfig[environment].baseHref;
+var distDir = './tmp' + application.appConfig[environment].baseHref;
 
 gulp.task('build', build);
 gulp.task('server', launchServer);
@@ -27,7 +27,7 @@ gulp.task('default', defaultTasks);
 
 function build() {
   environment = 'production';
-  distDir = '../docs' + spaConfig.appConfig[environment].baseHref;
+  distDir = '../docs' + application.appConfig[environment].baseHref;
   var webpackConfig = require(configDir + 'webpack')(environment);
 
   compileHtml();
@@ -54,8 +54,8 @@ function compileHtml() {
   var _ = require('lodash');
   var build = require('gulp-build');
   var appConfig = _.assign({
-    appConfig: JSON.stringify(spaConfig.appConfig[environment])
-  }, spaConfig.appConfig[environment]);
+    appConfig: JSON.stringify(application.appConfig[environment])
+  }, application.appConfig[environment]);
 
   gulp.src(srcDir + 'public/**/*.html')
       .pipe(build(appConfig))
@@ -79,7 +79,7 @@ function launchServer() {
 
   browserSync.init({
     open: false,
-    port: spaConfig.serverPort,
+    port: application.serverPort,
 
     server: {
       baseDir: './tmp/',
@@ -99,7 +99,7 @@ function launchServer() {
           var fileExists = fs.existsSync('./tmp/' + fileName);
 
           if (!fileExists && fileName.indexOf("browser-sync-client") < 0) {
-            req.url = spaConfig.appConfig[environment].baseHref + 'index.html';
+            req.url = application.appConfig[environment].baseHref + 'index.html';
           }
           return next();
         },
@@ -115,7 +115,7 @@ function launchMockServers() {
     var app         = require('express')(),
         cors        = require('cors'),
         bodyParser  = require('body-parser'),
-        whitelist   = ['http://localhost:' + spaConfig.serverPort],
+        whitelist   = ['http://localhost:' + application.serverPort],
         options     = {
           origin: function(origin, callback) {
             callback(null, (whitelist.indexOf(origin) !== -1));
