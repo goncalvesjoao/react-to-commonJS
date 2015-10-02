@@ -28,7 +28,7 @@
     "gulp-cssimport": "^2.1.1",
     "webpack-stream": "^2.0.0",
     "react-bootstrap": "^0.24.4",
-    "react-css-modules": "^3.2.1",
+    "react-css-modules": "3.2.1",
     "extract-text-webpack-plugin": "^0.8.2",
 
     "browser-sync": "^2.7.1",
