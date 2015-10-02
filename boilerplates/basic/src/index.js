@@ -1,5 +1,9 @@
+const config = require('./config');
+const jQuery = require('jquery');
+
 module.exports = {
-  config: require('./config'),
+  get config() { return config; },
+  set config(newConfig) { jQuery.extend(config, newConfig); },
 
   Components: require('./components'),
 };
