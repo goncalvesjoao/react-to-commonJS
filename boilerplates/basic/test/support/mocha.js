@@ -1,11 +1,6 @@
-global.React = require('react/addons');
-global.sinon = require('sinon');
-global.expect = require('chai').expect;
-global.mockery = require('mockery');
-global.TestTree = require('react-test-tree');
-global.TestUtils = global.React.addons.TestUtils;
+require('./jsdom')('<!doctype html><html><body></body></html>');
 
-require('./jsdom');
+require('./dependencies');
 
 mockery.enable({
   warnOnReplace: false,

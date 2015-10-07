@@ -18,8 +18,8 @@ const routes = {
           component: require('./components/api_docs/components'),
           childRoutes: [
             {
-              path: 'starwars_droids',
-              component: require('./components/api_docs/components/starwars_droids'),
+              path: 'droids',
+              component: require('./components/api_docs/components/droids'),
             },
           ],
         },

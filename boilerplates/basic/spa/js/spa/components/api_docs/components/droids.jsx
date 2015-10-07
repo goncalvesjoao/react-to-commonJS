@@ -1,14 +1,14 @@
-const { StarwarsDroids } = MyReactComponent.Components;
+const { Droids } = MyReactComponent.Components;
 const { Label } = require('react-bootstrap');
 
-const StarwarsDroidsExample = React.createClass({
+const DroidsExample = React.createClass({
 
   render() {
     return (
 
       <div>
         <div className='jumbotron'>
-          <h1>StarwarsDroids</h1>
+          <h1>Droids</h1>
         </div>
 
         <div className='panel panel-default'>
@@ -17,13 +17,13 @@ const StarwarsDroidsExample = React.createClass({
           </div>
 
           <div className='panel-body'>
-            <StarwarsDroids />
+            <Droids />
           </div>
 
           <div className='panel-footer'>
             <Label bsSize='small'>Code:</Label>
             <p>
-              <code>{ '<StarwarsDroids />' }</code>
+              <code>{ '<Droids />' }</code>
             </p>
           </div>
         </div>
@@ -34,13 +34,13 @@ const StarwarsDroidsExample = React.createClass({
           </div>
 
           <div className='panel-body'>
-            <StarwarsDroids name={ false } />
+            <Droids name={ false } />
           </div>
 
           <div className='panel-footer'>
             <Label bsSize='small'>Code:</Label>
             <p>
-              <code>{ '<StarwarsDroids name={ false } />' }</code>
+              <code>{ '<Droids name={ false } />' }</code>
             </p>
           </div>
         </div>
@@ -51,4 +51,4 @@ const StarwarsDroidsExample = React.createClass({
 
 });
 
-module.exports = StarwarsDroidsExample;
+module.exports = DroidsExample;

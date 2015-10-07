@@ -66,7 +66,7 @@ const ApiDocs = React.createClass({
         <li>
           <span>Components</span>
           <ul className={ ulClass }>
-            <LiLink to='/api_docs/components/starwars_droids'>StarwarsDroids</LiLink>
+            <LiLink to='/api_docs/components/droids'>Droids</LiLink>
           </ul>
         </li>
       </ul>

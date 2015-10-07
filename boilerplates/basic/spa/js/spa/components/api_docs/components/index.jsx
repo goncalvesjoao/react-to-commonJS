@@ -16,7 +16,7 @@ const ConfigExample = React.createClass({
           <ul className='ascii'>
             <li>Components
               <ul>
-                <li><Link to='/api_docs/components/starwars_droids'>StarwarsDroids</Link></li>
+                <li><Link to='/api_docs/components/droids'>Droids</Link></li>
               </ul>
             </li>
           </ul>
