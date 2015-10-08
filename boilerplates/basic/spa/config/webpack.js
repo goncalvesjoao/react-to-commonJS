@@ -75,7 +75,7 @@ function enableVendor(config, productionMode) {
     'react-bootstrap',
   ], reactHot);
 
-  config.plugins.push(new webpack.optimize.CommonsChunkPlugin('vendor', 'js/vendor.js'))
+  config.plugins.push(new webpack.optimize.CommonsChunkPlugin('vendor', 'js/vendor/index.js'))
 }
 
 function enableCssModules(config) {

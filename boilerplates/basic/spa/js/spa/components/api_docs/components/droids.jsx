@@ -1,5 +1,6 @@
 const { Droids } = MyReactComponent.Components;
 const { Label } = require('react-bootstrap');
+const { PrismCode } = require('react-prism');
 
 const DroidsExample = React.createClass({
 
@@ -22,9 +23,11 @@ const DroidsExample = React.createClass({
 
           <div className='panel-footer'>
             <Label bsSize='small'>Code:</Label>
-            <p>
-              <code>{ '<Droids />' }</code>
-            </p>
+            <pre>
+              <PrismCode className='language-jsx'>
+                { '<Droids />' }
+              </PrismCode>
+            </pre>
           </div>
         </div>
 
@@ -39,9 +42,11 @@ const DroidsExample = React.createClass({
 
           <div className='panel-footer'>
             <Label bsSize='small'>Code:</Label>
-            <p>
-              <code>{ '<Droids name={ false } />' }</code>
-            </p>
+            <pre>
+              <PrismCode className='language-jsx'>
+                { `<Droids name={ false } />` }
+              </PrismCode>
+            </pre>
           </div>
         </div>
       </div>
