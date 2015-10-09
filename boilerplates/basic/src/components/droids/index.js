@@ -1,10 +1,13 @@
 const jQuery = require('jquery');
 const config = require('../../config');
-const Droid = require('./droid');
+const Droid = require('./Droid');
 
-const Droids = React.createClass({
+class Droids extends React.Component {
 
-  getInitialState() { return { droids: [] }; },
+  constructor() {
+    super();
+    this.state = { droids: [] };
+  }
 
   componentWillMount() {
     jQuery.ajax({
@@ -12,15 +15,15 @@ const Droids = React.createClass({
       dataType: 'json',
       success: (data) => { this.setState({ droids: data }); },
     });
-  },
+  }
 
   render() {
     return (
-      <ul className='list-inline' refCollection='droids'>
+      <ul className="list-inline">
         { this.renderDroids() }
       </ul>
     );
-  },
+  }
 
   renderDroids() {
     if (!this.state.droids.length) {
@@ -28,10 +31,10 @@ const Droids = React.createClass({
     }
 
     return this.state.droids.map((droid, index) => {
-      return <Droid key={ index } droid={ droid } { ...this.props } />;
+      return <Droid key={ index } ref={ `droid_${droid.id}` } droid={ droid } { ...this.props } />;
     });
-  },
+  }
 
-});
+}
 
 module.exports = Droids;

@@ -1,23 +1,18 @@
 var myReactComponentPackageJson = require('../../package.json');
 
-var myReactComponentConfig = {
-  'name': myReactComponentPackageJson.name,
-  'version': myReactComponentPackageJson.version,
-  'author': myReactComponentPackageJson.author,
-  'repository': myReactComponentPackageJson.repository,
-  'description': myReactComponentPackageJson.description,
-
-  baseHref: '/',
-};
-
 module.exports = {
 
-  appConfig: {
-    production: require('./environments/production')(myReactComponentConfig),
-    development: require('./environments/development')(myReactComponentConfig),
-  },
+  appConfig: require('./environments')({
+    'name': myReactComponentPackageJson.name,
+    'author': myReactComponentPackageJson.author,
+    'version': myReactComponentPackageJson.version,
+    'repository': myReactComponentPackageJson.repository,
+    'description': myReactComponentPackageJson.description,
 
-  eslint: true,
+    baseHref: '/',
+  }),
+
+  eslint: false,
 
   serverPort: 9000,
 

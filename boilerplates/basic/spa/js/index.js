@@ -1,4 +1,4 @@
-window.React = require('react/addons');
+window.React = require('react');
 window.ReactRouter = require('react-router');
 window.MyReactComponent = require('../../src');
 
@@ -12,7 +12,7 @@ const { createHistory, useBasename } = require('history');
 const history = useBasename(createHistory)({
   basename: document.baseURI.substring(window.location.origin.length, document.baseURI.length - 1),
 });
-React.render(
+require('react-dom').render(
   React.createElement(ReactRouter.Router, {
     history: history,
     routes: require('./spa').routes,

@@ -19,8 +19,7 @@
     "sinon": true,
     "expect": true,
     "mockery": true,
-
-    "TestTree": true,
+    "TestUtils": true,
     "describe": true,
     "xdescribe": true,
     "ddescribe": true,

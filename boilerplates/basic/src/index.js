@@ -5,5 +5,5 @@ module.exports = {
   get config() { return config; },
   set config(newConfig) { jQuery.extend(config, newConfig); },
 
-  Components: require('./components'),
+  components: require('./components'),
 };

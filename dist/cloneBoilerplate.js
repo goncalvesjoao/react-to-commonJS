@@ -1,7 +1,7 @@
 'use strict';
 
 var _ = require('lodash');
-var fileUtils = require('./file_utils');
+var fileUtils = require('./fileUtils');
 
 function cloneBoilerplate(config, sourceDir, options) {
   var project = require('./project')(config);

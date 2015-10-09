@@ -1,25 +1,24 @@
 const routes = {
-  component: require('./components/layout'),
+  component: require('./components/Layout'),
   childRoutes: [
     {
       path: '/',
-      component: require('./components/home'),
+      component: require('./components/Home'),
     },
     {
       path: 'api_docs',
-      component: require('./components/api_docs'),
+      component: require('./components/ApiDocs'),
       childRoutes: [
         {
           path: 'config',
-          component: require('./components/api_docs/config'),
+          component: require('./components/ApiDocs/ConfigExample'),
         },
         {
           path: 'components',
-          component: require('./components/api_docs/components'),
           childRoutes: [
             {
               path: 'droids',
-              component: require('./components/api_docs/components/droids'),
+              component: require('./components/ApiDocs/components/DroidsExample'),
             },
           ],
         },
@@ -27,7 +26,7 @@ const routes = {
     },
     {
       path: '*',
-      component: require('./components/not_found'),
+      component: require('./components/NotFound'),
     },
   ],
 };

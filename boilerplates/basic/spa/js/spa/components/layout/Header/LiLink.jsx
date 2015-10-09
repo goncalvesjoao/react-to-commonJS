@@ -8,11 +8,9 @@ module.exports = React.createClass({
     const isActive = this.history.isActive(this.props.to, this.props.query);
 
     return (
-
       <li className={ isActive ? 'active' : '' } >
-        <Link { ...this.props } activeClassName='active' />
+        <Link { ...this.props } activeClassName="active" />
       </li>
-
     );
   },
 

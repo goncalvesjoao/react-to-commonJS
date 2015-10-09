@@ -1,5 +1,5 @@
 const _ = require('lodash');
-const fileUtils = require('./file_utils');
+const fileUtils = require('./fileUtils');
 
 function cloneBoilerplate(config, sourceDir, options) {
   const project = require('./project')(config);

@@ -1,8 +1,10 @@
-const Prism = React.createClass({
+class Prism extends React.Component {
 
-  hightlight() { window.Prism.highlightElement(this.refs.code.getDOMNode()); },
-  componentDidMount() { this.hightlight(); },
-  componentDidUpdate() { this.hightlight(); },
+  hightlight() { window.Prism.highlightElement(this.refs.code); }
+
+  componentDidMount() { this.hightlight(); }
+
+  componentDidUpdate() { this.hightlight(); }
 
   render() {
     return (
@@ -12,8 +14,8 @@ const Prism = React.createClass({
         </code>
       </pre>
     );
-  },
+  }
 
-});
+}
 
 module.exports = Prism;

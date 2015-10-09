@@ -1,6 +1,6 @@
 {
   "name": "spa",
-  "version": "1.1.3",
+  "version": "1.2.0",
   "description": "single page app to help develop, test and document your React Component",
   "repository": {
     "type": "git",
@@ -12,32 +12,31 @@
     "build": "rm -rdf ../docs && ./node_modules/.bin/gulp build"
   },
   "dependencies": {
-    "gulp": "^3.8.11",
-    "babel": "^5.8.23",
-    "react": "^0.13.3",
-    "lodash": "^3.7.0",
-    "webpack": "^1.9.5",
-    "gulp-sass": "^2.0.4",
-    "css-loader": "^0.19.0",
-    "babel-core": "^5.8.25",
-    "json-loader": "^0.5.2",
-    "gulp-build": "^0.5.3",
-    "babel-loader": "^5.3.2",
-    "style-loader": "^0.12.3",
+    "cors": "2.7.1",
+    "gulp": "3.9.0",
+    "babel": "5.8.23",
+    "express": "4.13.3",
+    "webpack": "1.12.2",
+    "gulp-sass": "2.0.4",
+    "gulp-build": "0.5.3",
+    "css-loader": "0.19.0",
+    "json-loader": "0.5.3",
+    "babel-loader": "5.3.2",
+    "body-parser": "1.14.1",
+    "browser-sync": "2.9.10",
+    "style-loader": "0.12.4",
+    "gulp-cssimport": "2.1.1",
+    "webpack-stream": "2.1.1",
+    "react-hot-loader": "1.3.0",
+    "webpack-dev-middleware": "1.2.0",
+    "webpack-hot-middleware": "2.4.1",
+    "extract-text-webpack-plugin": "0.8.2",
+
+    "react": "0.14.0",
+    "lodash": "3.10.1",
+    "react-dom": "0.14.0",
+    "react-bootstrap": "0.27.1",
     "react-router": "1.0.0-rc1",
-    "gulp-cssimport": "^2.1.1",
-    "webpack-stream": "^2.0.0",
-    "react-bootstrap": "^0.24.4",
-    "react-css-modules": "3.2.1",
-    "extract-text-webpack-plugin": "^0.8.2",
-
-    "browser-sync": "^2.7.1",
-    "react-hot-loader": "^1.3.0",
-    "webpack-dev-middleware": "^1.2.0",
-    "webpack-hot-middleware": "^2.2.0",
-
-    "cors": "^2.6.0",
-    "express": "^4.12.3",
-    "body-parser": "^1.12.4"
+    "react-css-modules": "3.5.2"
   }
 }

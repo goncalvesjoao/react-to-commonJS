@@ -1,6 +1,5 @@
-global.React = require('react/addons');
+global.React = require('react');
 global.sinon = require('sinon');
 global.expect = require('chai').expect;
 global.mockery = require('mockery');
-global.TestTree = require('react-test-tree');
-global.TestUtils = global.React.addons.TestUtils;
+global.TestUtils = require('react-addons-test-utils');

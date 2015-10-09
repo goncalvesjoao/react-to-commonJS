@@ -9,9 +9,9 @@ function reactToCommonJS(name, destinationDir, boilerplateName) {
 
   return {
     config: config,
-    npmInstall: require('./npm_install').bind(null, config),
+    npmInstall: require('./npmInstall').bind(null, config),
     congratulations: require('./congratulations').bind(null, config),
-    cloneBoilerplate: require('./clone_boilerplate').bind(null, config),
+    cloneBoilerplate: require('./cloneBoilerplate').bind(null, config),
     cloneBoilerplates: function cloneBoilerplates(options) {
       this.cloneBoilerplate(__dirname + '/../boilerplates/basic', options);
 
