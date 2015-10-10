@@ -2,5 +2,7 @@
 .eslintrc
 .npmignore
 *.log
-/node_modules
-/tmp
+node_modules
+tmp
+docs
+coverage
