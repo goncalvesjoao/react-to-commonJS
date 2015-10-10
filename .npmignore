@@ -2,7 +2,11 @@
 .eslintrc
 .npmignore
 *.log
-node_modules
-tmp
-docs
-coverage
+/src
+/node_modules
+/boilerplates/basic/spa/tmp
+/boilerplates/basic/spa/node_modules
+/boilerplates/basic/dist
+/boilerplates/basic/docs
+/boilerplates/basic/coverage
+/boilerplates/basic/node_modules
