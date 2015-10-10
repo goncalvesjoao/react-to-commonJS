@@ -9,9 +9,10 @@ function newCommand(projectName, options) {
     projectName,
     process.cwd() + '/',
     {
-      fullName: /MyReactComponent/g,
       camelCase: /myReactComponent/g,
       snakeCase: /my_react_component/g,
+      kebabCase: /my-react-component/g,
+      pascalCase: /MyReactComponent/g,
       screamCase: /MY_REACT_COMPONENT/g,
     }
   );

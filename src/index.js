@@ -15,7 +15,7 @@ function reactToCommonJS(name, destinationDir, boilerplateName) {
 
       if (options.css_modules) {
         options.force = true;
-        this.cloneBoilerplate(__dirname + '/../boilerplates/css_modules', options);
+        this.cloneBoilerplate(__dirname + '/../boilerplates/css-modules', options);
       }
     },
   };

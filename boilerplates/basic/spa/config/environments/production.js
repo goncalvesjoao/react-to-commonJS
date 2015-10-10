@@ -5,7 +5,7 @@ function productionConfig(config) {
   return _.assign({}, config, {
     environment: 'production',
 
-    baseHref: '/my_react_component/',
+    baseHref: '/my-react-component/',
   });
 
 }

@@ -12,7 +12,7 @@ gulp.task('server', launchServer);
 gulp.task('copy-public', copyPublic);
 gulp.task('compile-css', compileCss);
 gulp.task('compile-html', compileHtml);
-gulp.task('mock_servers', launchMockServers)
+gulp.task('mock-servers', launchMockServers)
 gulp.task('watch', function() {
   gulp.watch(srcDir + 'css/**/*', compileCss);
   gulp.watch(srcDir + 'public/**/*.html', compileHtml);
@@ -20,7 +20,7 @@ gulp.task('watch', function() {
 });
 
 var defaultTasks = ['copy-public', 'compile-html', 'compile-css', 'server', 'watch'];
-if (fs.existsSync('./mock_servers')) { defaultTasks.push('mock_servers'); }
+if (fs.existsSync('./mockServers')) { defaultTasks.push('mock-servers'); }
 gulp.task('default', defaultTasks);
 
 // ********************************* PROTECTED *********************************
@@ -109,7 +109,7 @@ function launchServer() {
 }
 
 function launchMockServers() {
-  var mockServers = require('./mock_servers');
+  var mockServers = require('./mockServers');
 
   mockServers.forEach(function(mockServer) {
     var app         = require('express')(),

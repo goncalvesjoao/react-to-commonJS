@@ -1,4 +1,4 @@
-require('./jsdom')('<!doctype html><html><body></body></html>');
+require('./jsdomBuilder')('<!doctype html><html><body></body></html>');
 
 require('./dependencies');
 

@@ -73,7 +73,7 @@ $> npm start
 
 - **Webpack** will be watching both the *spa/js* and your *src* directory, transpiling the code to plain javascript and updating your browser automatically, through **react-hot-loader**.
 
-- **Eslint** will be connected to **Webpack** to let you know when your changes do not meet the [Airbnb javascript  style guide](https://github.com/airbnb/javascript) (you can disable it in *spa/config/spa.js*).
+- **Eslint** can be connected to **Webpack** to let you know when your changes do not meet the [Airbnb javascript  style guide](https://github.com/airbnb/javascript) (you can enable it in *spa/config/spa.js*).
 
 - A **mock server** will be raise for each *spa/mock_servers/index.js* entry with the same port has the entry's port attribute. Each **mock server** file (listed on *spa/mock_servers/index.js*) will receive an **expressJS** instance and from that you get all the control you need to mock you API. (If you have no need for mock servers, you can just delete the *spa/mock_servers* directory).
 
@@ -90,7 +90,7 @@ $> npm test
 ```
 $> npm run quick-test
 ```
-- **npm run quick-test** is a quicker version, that bypasses the eslint and coverage verification that **npm test** does.
+- **npm run quick-test** is a quicker version, that bypasses the coverage verification that **npm test** does.
 
 ### 4. Building
 ```

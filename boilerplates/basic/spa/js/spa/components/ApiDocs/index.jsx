@@ -61,7 +61,7 @@ class ApiDocs extends React.Component {
         <LiLink to="/api_docs/config">config</LiLink>
 
         <li>
-          <span>Components</span>
+          <span>components</span>
           <ul className={ ulClass }>
             <LiLink to="/api_docs/components/droids">Droids</LiLink>
           </ul>
