@@ -5,7 +5,7 @@ window.MyReactComponent = require('../../src');
 // Configuring MyReactComponent
 // window.appConfig is being populated on public/index.html
 // that in turn is being populated by spa/config/spa.js#appConfig entry.
-window.MyReactComponent.config = window.appConfig;
+Object.assign(window.MyReactComponent.config, window.appConfig);
 
 // Bootstraping your single page app
 const { createHistory, useBasename } = require('history');
