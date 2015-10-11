@@ -1,4 +1,4 @@
-const LiLink = require('./LiLink');
+const LiLink = require('../../LiLink');
 const { config } = MyReactComponent;
 const CSSModules = require('react-css-modules');
 

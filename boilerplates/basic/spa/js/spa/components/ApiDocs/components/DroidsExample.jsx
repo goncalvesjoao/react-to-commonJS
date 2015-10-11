@@ -7,9 +7,15 @@ class DroidsExample extends React.Component {
   render() {
     return (
       <div>
-        <div className="jumbotron">
-          <h1>components: Droids</h1>
-        </div>
+        <Prism className="language-jsx">
+          {
+            `const MyReactComponent = require('my-react-component');
+const { Droids } = MyReactComponent.components;`
+          }
+        </Prism>
+
+        <p>&nbsp;</p>
+        <p className="lead">Examples:</p>
 
         <div className="panel panel-default">
           <div className="panel-heading">
@@ -30,7 +36,7 @@ class DroidsExample extends React.Component {
 
         <div className="panel panel-default">
           <div className="panel-heading">
-            <h3 className="panel-title">No name</h3>
+            <h3 className="panel-title">Disable display name</h3>
           </div>
 
           <div className="panel-body">

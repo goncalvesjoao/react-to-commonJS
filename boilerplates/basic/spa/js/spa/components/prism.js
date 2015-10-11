@@ -7,8 +7,12 @@ class Prism extends React.Component {
   componentDidUpdate() { this.hightlight(); }
 
   render() {
+    let preClassName = 'line-numbers'
+
+    if (this.props.noShadow) { preClassName += ' no-shadow'; }
+
     return (
-      <pre>
+      <pre className={ preClassName } data-bash-mode={ this.props.bashMode }>
         <code ref="code" className={ this.props.className }>
           { this.props.children }
         </code>

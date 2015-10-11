@@ -1,7 +1,9 @@
-const LiLink = require('../Layout/Header/LiLink');
-const { Link } = ReactRouter;
+const LiLink = require('../LiLink');
+const { Link, History } = ReactRouter;
 
-class ApiDocs extends React.Component {
+const ApiDocs = React.createClass({
+
+  mixins: [History],
 
   render() {
     return (
@@ -10,66 +12,54 @@ class ApiDocs extends React.Component {
 
         <div className="container">
           <div className="row">
+            <div className="col-xs-3 ascii">
+              { this.renderSidebar() }
+            </div>
 
             <div className="col-md-9">
               { this.props.children || this.renderHome() }
             </div>
-
-            <nav className="col-xs-3 bs-docs-sidebar">
-              { this.renderLinks(true) }
-            </nav>
-
           </div>
         </div>
 
       </div>
     );
-  }
+  },
 
   renderHome() {
     return (
       <div className="jumbotron">
         <h1>MyReactComponent API</h1>
-
-        <div className="ascii">
-          <ul className="ascii">
-            <li>
-              <span>MyReactComponent</span>
-              { this.renderLinks() }
-            </li>
-          </ul>
-        </div>
+        <h2 className="lead">
+          This API documentation example page,
+          ilustrates how you can take advantage of this Single Page App
+          created for you to test your React Component and
+          actually use it to document your work and publish it on the Web.
+        </h2>
       </div>
     );
-  }
+  },
 
-  renderLinks(sidebarMode) {
-    let title = '';
-    let ulClass = '';
-    let firstUlClass = '';
-
-    if (sidebarMode) {
-      title = <h4><Link to="/api_docs">MyReactComponent API</Link></h4>;
-      ulClass = 'nav nav-stacked';
-      firstUlClass = ulClass + ' fixed';
-    }
-
+  renderSidebar() {
     return (
-      <ul className={ firstUlClass }>
-        { title }
-
-        <LiLink to="/api_docs/config">config</LiLink>
-
+      <ul className="ascii fixed">
         <li>
-          <span>components</span>
-          <ul className={ ulClass }>
-            <LiLink to="/api_docs/components/droids">Droids</LiLink>
+          <span>MyReactComponent</span>
+          <ul>
+            <LiLink to="/api_docs/config">config</LiLink>
+
+            <li className={ this.history.isActive('/api_docs/components') ? 'active' : '' }>
+              <span>components</span>
+              <ul>
+                <LiLink to="/api_docs/components/droids">Droids</LiLink>
+              </ul>
+            </li>
           </ul>
         </li>
       </ul>
     );
-  }
+  },
 
-}
+});
 
 module.exports = ApiDocs;

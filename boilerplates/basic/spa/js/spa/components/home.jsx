@@ -1,5 +1,6 @@
 const { config } = MyReactComponent;
 const { Panel } = require('react-bootstrap');
+const Prism = require('./Prism');
 
 class Home extends React.Component {
 
@@ -26,13 +27,13 @@ class Home extends React.Component {
 
         <div className="container">
           <h2>Getting started:</h2>
-          <Panel>
-            <code>npm install { config.name } --save</code>
-          </Panel>
+          <Prism className="language-ruby" noShadow={ true } bashMode={ true }>
+            npm install { config.name } --save
+          </Prism>
           <p>or</p>
-          <Panel>
-            <code>npm install git+https://git@github.com:{ config.author || '<package.json:author>' }/{ config.name || '<package.json:name>' }.git#master --save</code>
-          </Panel>
+          <Prism className="language-ruby" noShadow={ true } bashMode={ true }>
+              npm install git+https://git@github.com:{ config.author || '<package.json:author>' }/{ config.name || '<package.json:name>' }.git#master --save
+          </Prism>
         </div>
       </div>
     );

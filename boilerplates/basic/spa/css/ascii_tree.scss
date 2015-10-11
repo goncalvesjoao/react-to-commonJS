@@ -8,6 +8,11 @@ div.ascii {
   ul.ascii, ul.ascii ul {  margin-left: 0; padding-left: 0;  list-style: none; }
 
   ul.ascii li { margin: 0; padding: 0; }
+  ul.ascii a { color: #333; }
+  ul.ascii span { color: #777; }
+  ul.ascii a.active { color: #13B5EA; }
+  ul.ascii li::before { color: #777; }
+  ul.ascii li.active::before { color: #13B5EA; }
 
   /* level 1 */
   ul.ascii > li::before { content: ""; }

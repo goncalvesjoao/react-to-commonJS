@@ -11,7 +11,7 @@ const routes = {
       childRoutes: [
         {
           path: 'config',
-          component: require('./components/ApiDocs/ConfigExample'),
+          component: require('./components/ApiDocs/configExample'),
         },
         {
           path: 'components',
