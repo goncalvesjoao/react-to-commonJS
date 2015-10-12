@@ -1,5 +1,4 @@
 const { config } = MyReactComponent;
-const { Panel } = require('react-bootstrap');
 const Prism = require('./Prism');
 
 class Home extends React.Component {

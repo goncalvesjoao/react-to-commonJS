@@ -1,5 +1,5 @@
 const LiLink = require('../LiLink');
-const { Link, History } = ReactRouter;
+const { History } = ReactRouter;
 
 const ApiDocs = React.createClass({
 

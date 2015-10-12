@@ -7,7 +7,7 @@ class Prism extends React.Component {
   componentDidUpdate() { this.hightlight(); }
 
   render() {
-    let preClassName = 'line-numbers'
+    let preClassName = 'line-numbers';
 
     if (this.props.noShadow) { preClassName += ' no-shadow'; }
 
