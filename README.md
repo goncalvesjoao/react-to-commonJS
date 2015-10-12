@@ -3,7 +3,7 @@ A tool to help you build, test and preview your react component and distribute i
 
 Gathering and configuring the several different technologies necessary to build a React Component can be overwhelming for a novice and for a more experienced developer it becomes a repetitive process. Also, when building a component with the purpose of being used by other Apps, you'll need your own web page to preview and document the different ways your React Component can be used.
 
-Check out this example: [Stardoroido](http://goncalvesjoao.github.io/stardoroido/)
+Check out this React Component [Stardoroido](https://github.com/goncalvesjoao/stardoroido) and its [documentation page](http://goncalvesjoao.github.io/stardoroido), both created with the help of **r2c2**.
 
 This is not a tool for creating full-fledged single page React Apps. Its a tool to help you build and distribute CommonJS (or standalone) React Components ready to be used by other people.
 
