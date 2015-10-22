@@ -1,5 +1,6 @@
-const LiLink = require('../LiLink');
-const { History } = ReactRouter;
+import React from 'react';
+import LiLink from '../LiLink';
+import { History } from 'react-router';
 
 const ApiDocs = React.createClass({
 
@@ -62,4 +63,4 @@ const ApiDocs = React.createClass({
 
 });
 
-module.exports = ApiDocs;
+export default ApiDocs;

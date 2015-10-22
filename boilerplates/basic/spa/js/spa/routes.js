@@ -1,24 +1,31 @@
+import Home from './components/Home';
+import Layout from './components/Layout';
+import ApiDocs from './components/ApiDocs';
+import NotFound from './components/NotFound';
+import ConfigExample from './components/ApiDocs/ConfigExample';
+import DroidsExample from './components/ApiDocs/components/DroidsExample';
+
 const routes = {
-  component: require('./components/Layout'),
+  component: Layout,
   childRoutes: [
     {
       path: '/',
-      component: require('./components/Home'),
+      component: Home,
     },
     {
       path: 'api_docs',
-      component: require('./components/ApiDocs'),
+      component: ApiDocs,
       childRoutes: [
         {
           path: 'config',
-          component: require('./components/ApiDocs/configExample'),
+          component: ConfigExample,
         },
         {
           path: 'components',
           childRoutes: [
             {
               path: 'droids',
-              component: require('./components/ApiDocs/components/DroidsExample'),
+              component: DroidsExample,
             },
           ],
         },
@@ -26,9 +33,9 @@ const routes = {
     },
     {
       path: '*',
-      component: require('./components/NotFound'),
+      component: NotFound,
     },
   ],
 };
 
-module.exports = routes;
+export default routes;

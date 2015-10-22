@@ -78,12 +78,12 @@ function webpackBasicConfig() {
         {
           test: /\.jsx$/,
           exclude: /node_modules/,
-          loaders: ['babel-loader']
+          loaders: ['babel?stage=1']
         },
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          loaders: ['babel-loader']
+          loaders: ['babel?stage=1']
         }
       ]
     },

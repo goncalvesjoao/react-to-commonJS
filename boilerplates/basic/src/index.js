@@ -1,5 +1,7 @@
-module.exports = {
-  config: require('./config'),
+import config from './config';
+import components from './components';
 
-  components: require('./components'),
+export default {
+  config,
+  components,
 };

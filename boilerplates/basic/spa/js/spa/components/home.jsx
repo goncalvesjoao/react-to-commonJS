@@ -1,5 +1,7 @@
 const { config } = MyReactComponent;
-const Prism = require('./Prism');
+
+import React from 'react';
+import Prism from './Prism';
 
 class Home extends React.Component {
 
@@ -66,4 +68,4 @@ class Home extends React.Component {
 
 }
 
-module.exports = Home;
+export default Home;

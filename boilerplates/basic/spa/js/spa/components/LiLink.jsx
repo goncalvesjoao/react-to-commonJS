@@ -1,6 +1,7 @@
-const { Link, History } = ReactRouter;
+import React from 'react';
+import { Link, History } from 'react-router';
 
-module.exports = React.createClass({
+const LiLink = React.createClass({
 
   mixins: [History],
 
@@ -15,3 +16,5 @@ module.exports = React.createClass({
   },
 
 });
+
+export default LiLink;

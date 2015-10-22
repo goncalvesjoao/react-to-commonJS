@@ -17,8 +17,8 @@ function webpackConfig(environment) {
     module: {
       preLoaders: [],
       loaders: [
-        { test: /\.jsx$/, exclude: /node_modules/, loaders: ['react-hot', 'babel-loader'] },
-        { test: /\.js$/, exclude: /node_modules/, loaders: ['react-hot', 'babel-loader'] },
+        { test: /\.jsx$/, exclude: /node_modules/, loaders: ['react-hot', 'babel?stage=1'] },
+        { test: /\.js$/, exclude: /node_modules/, loaders: ['react-hot', 'babel?stage=1'] },
         { test: /\.json$/, include: /\.json$/, loaders: ['json-loader'] }
       ]
     },

@@ -1,3 +1,5 @@
-module.exports = {
-  Droids: require('./Droids'),
+import Droids from './Droids';
+
+export default {
+  Droids,
 };

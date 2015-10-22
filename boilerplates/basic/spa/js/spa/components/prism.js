@@ -1,3 +1,5 @@
+import React from 'react';
+
 class Prism extends React.Component {
 
   hightlight() { window.Prism.highlightElement(this.refs.code); }
@@ -22,4 +24,4 @@ class Prism extends React.Component {
 
 }
 
-module.exports = Prism;
+export default Prism;

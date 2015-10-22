@@ -1,14 +1,15 @@
-const { Label } = require('react-bootstrap');
-const Prism = require('../Prism');
+import React from 'react';
+import Prism from '../Prism';
+import { Label } from 'react-bootstrap';
 
-class configExample extends React.Component {
+class ConfigExample extends React.Component {
 
   render() {
     return (
       <div>
         <Prism className="language-jsx">
           {
-            `const MyReactComponent = require('my-react-component');
+            `import MyReactComponent from 'my-react-component';
 const { config } = MyReactComponent;`
           }
         </Prism>
@@ -40,4 +41,4 @@ const { config } = MyReactComponent;`
 
 }
 
-module.exports = configExample;
+export default ConfigExample;

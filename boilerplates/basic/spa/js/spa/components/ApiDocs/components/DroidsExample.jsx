@@ -1,6 +1,8 @@
 const { Droids } = MyReactComponent.components;
-const { Label } = require('react-bootstrap');
-const Prism = require('../../Prism');
+
+import React from 'react';
+import Prism from '../../Prism';
+import { Label } from 'react-bootstrap';
 
 class DroidsExample extends React.Component {
 
@@ -9,7 +11,7 @@ class DroidsExample extends React.Component {
       <div>
         <Prism className="language-jsx">
           {
-            `const MyReactComponent = require('my-react-component');
+            `import MyReactComponent from 'my-react-component';
 const { Droids } = MyReactComponent.components;`
           }
         </Prism>
@@ -56,4 +58,4 @@ const { Droids } = MyReactComponent.components;`
 
 }
 
-module.exports = DroidsExample;
+export default DroidsExample;

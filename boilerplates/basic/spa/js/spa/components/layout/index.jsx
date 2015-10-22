@@ -1,6 +1,8 @@
-const Header = require('./Header');
-const Footer = require('./Footer');
-const CSSModules = require('react-css-modules');
+import React from 'react';
+import Header from './Header';
+import Footer from './Footer';
+import styles from '../../styles/style.css';
+import CSSModules from 'react-css-modules';
 
 const App = ({ children }) => (
   <div>
@@ -14,4 +16,4 @@ const App = ({ children }) => (
   </div>
 );
 
-module.exports = CSSModules(App, require('../../styles/style.css'));
+export default CSSModules(App, styles);

@@ -1,3 +1,5 @@
-module.exports = {
-  routes: require('./routes'),
+import routes from './routes';
+
+export default {
+  routes,
 };

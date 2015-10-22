@@ -1,3 +1,5 @@
+import React from 'react';
+
 const { config } = MyReactComponent;
 let author = '<package.json:author>';
 
@@ -12,4 +14,4 @@ const Footer = () => (
   </footer>
 );
 
-module.exports = Footer;
+export default Footer;

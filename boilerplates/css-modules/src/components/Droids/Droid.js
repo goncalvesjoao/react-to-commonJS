@@ -1,8 +1,12 @@
-const CSSModules = require('react-css-modules');
+import React from 'react';
+import styles from '../../styles/style.css';
+import CSSModules from 'react-css-modules';
+
 const defaultProps = {
   name: true,
 };
 
+@CSSModules(styles)
 class Droid extends React.Component {
 
   render() {
@@ -35,4 +39,4 @@ class Droid extends React.Component {
 
 Droid.defaultProps = defaultProps;
 
-module.exports = CSSModules(Droid, require('../../styles/style.css'));
+export default Droid;

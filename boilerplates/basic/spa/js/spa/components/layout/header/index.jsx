@@ -1,7 +1,11 @@
-const LiLink = require('../../LiLink');
 const { config } = MyReactComponent;
-const CSSModules = require('react-css-modules');
 
+import React from 'react';
+import LiLink from '../../LiLink';
+import styles from '../../../styles/style.css';
+import CSSModules from 'react-css-modules';
+
+@CSSModules(styles)
 class Header extends React.Component {
 
   render() {
@@ -56,4 +60,4 @@ class Header extends React.Component {
 
 }
 
-module.exports = CSSModules(Header, require('../../../styles/style.css'));
+export default Header;
