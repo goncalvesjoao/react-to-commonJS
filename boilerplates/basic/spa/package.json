@@ -35,8 +35,8 @@
     "react": "0.14.0",
     "lodash": "3.10.1",
     "react-dom": "0.14.0",
+    "react-router": "1.0.0-rc3",
     "react-bootstrap": "0.27.1",
-    "react-router": "1.0.0-rc1",
     "react-css-modules": "3.5.2"
   }
 }

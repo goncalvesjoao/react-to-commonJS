@@ -13,7 +13,7 @@ const routes = {
       component: Home,
     },
     {
-      path: 'api_docs',
+      path: '/api_docs',
       component: ApiDocs,
       childRoutes: [
         {

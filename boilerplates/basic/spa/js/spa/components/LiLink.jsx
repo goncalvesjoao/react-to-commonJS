@@ -6,7 +6,11 @@ const LiLink = React.createClass({
   mixins: [History],
 
   render() {
-    const isActive = this.history.isActive(this.props.to, this.props.query);
+    let isActive = this.history.isActive(this.props.to, this.props.query);
+
+    if (this.props.to === '/') {
+      isActive = (window.appConfig.baseHref === location.pathname);
+    }
 
     return (
       <li className={ isActive ? 'active' : '' }>
