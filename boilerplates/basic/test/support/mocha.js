@@ -1,15 +1,15 @@
-require('./jsdomBuilder')('<!doctype html><html><body></body></html>');
+import './jsdom';
 
-require('./dependencies');
+import React from 'react';
+import sinon from 'sinon';
+import mockery from 'mockery';
+import { expect } from 'chai'
+import TestUtils from 'react-addons-test-utils';
+import MyReactComponent from '../../src';
 
-mockery.enable({
-  warnOnReplace: false,
-  warnOnUnregistered: false,
-  useCleanCache: true,
-});
-
-mockery.registerMock('react-css-modules', function fakeCSSModules(Component) {
-  return Component;
-});
-
-global.MyReactComponent = require('../../src');
+global.React = React;
+global.sinon = sinon;
+global.expect = expect;
+global.mockery = mockery;
+global.TestUtils = TestUtils;
+global.MyReactComponent = MyReactComponent;

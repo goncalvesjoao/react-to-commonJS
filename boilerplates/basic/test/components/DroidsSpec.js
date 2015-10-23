@@ -1,6 +1,3 @@
-import React from 'react';
-import TestUtils from 'react-addons-test-utils';
-
 const { Droids } = MyReactComponent.components;
 const mockedDroids = [
   { id: 1, name: 'r2d2', avatar: 'none' },
