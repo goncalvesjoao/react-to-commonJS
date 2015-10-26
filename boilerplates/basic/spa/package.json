@@ -1,6 +1,6 @@
 {
   "name": "spa",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "single page app to help develop, test and document your React Component",
   "repository": {
     "type": "git",
@@ -25,9 +25,9 @@
     "body-parser": "1.14.1",
     "browser-sync": "2.9.10",
     "style-loader": "0.12.4",
-    "gulp-cssimport": "2.1.1",
     "webpack-stream": "2.1.1",
     "react-hot-loader": "1.3.0",
+    "node-sass-import-once": "1.2.0",
     "webpack-dev-middleware": "1.2.0",
     "webpack-hot-middleware": "2.4.1",
     "extract-text-webpack-plugin": "0.8.2",

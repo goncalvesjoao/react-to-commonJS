@@ -41,13 +41,22 @@ function build() {
 
 function compileCss() {
   var sass = require('gulp-sass');
-  var cssimport = require("gulp-cssimport");
+  var importOnce = require('node-sass-import-once');
 
   gulp.src(srcDir + 'css/index.scss')
-      .pipe(cssimport({ matchPattern: "*.css" }))
-      .pipe(sass({ sync: true, onError: console.error }))
+      .pipe(sass({
+        sync: true,
+        importer: importOnce,
+        importOnce: {
+          index: false,
+          css: true,
+          bower: false
+        },
+        includePaths: [srcDir + 'css', '../node_modules'],
+        onError: console.error
+      }))
       .pipe(updateBrowser())
-      .pipe(gulp.dest(distDir + 'css/index.css'));
+      .pipe(gulp.dest(distDir + 'css'));
 }
 
 function compileHtml() {
