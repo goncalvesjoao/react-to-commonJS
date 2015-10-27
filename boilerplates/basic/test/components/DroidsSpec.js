@@ -14,27 +14,25 @@ describe('Droids', () => {
 
   context('when no props are used', () => {
     it('a list of droids with names should be returned', () => {
-      const droids = TestUtils.renderIntoDocument(<Droids />);
+      const droids = testTree(<Droids />);
 
-      expect(Object.keys(droids.refs).length).to.equal(2);
+      expect(droids.get('droids').length).to.equal(2);
 
-      for (const index in droids.refs) {
-        const droid = droids.refs[index];
-        expect(droid.refs.name).to.exist;
-      }
+      droids.get('droids').map((droid) => {
+        expect(droid.get('name')).to.exist;
+      });
     });
   });
 
   context('when props.name = false', () => {
     it('a list of droids without names should be returned', () => {
-      const droids = TestUtils.renderIntoDocument(<Droids name={ false } />);
+      const droids = testTree(<Droids name={ false } />);
 
-      expect(Object.keys(droids.refs).length).to.equal(2);
+      expect(droids.get('droids').length).to.equal(2);
 
-      for (const index in droids.refs) {
-        const droid = droids.refs[index];
-        expect(droid.refs.name).to.not.exist;
-      }
+      droids.get('droids').map((droid) => {
+        expect(droid.get('name')).to.not.exist;
+      });
     });
   });
 });

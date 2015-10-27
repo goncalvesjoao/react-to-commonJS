@@ -24,13 +24,13 @@ class Droids extends React.Component {
     }
 
     return this.state.droids.map((droid, index) => {
-      return <Droid key={ index } ref={ `droid_${droid.id}` } droid={ droid } { ...this.props } />;
+      return <Droid key={ index } droid={ droid } { ...this.props } />;
     });
   }
 
   render() {
     return (
-      <ul className="list-inline">
+      <ul className="list-inline" refCollection="droids">
         { this.renderDroids() }
       </ul>
     );
