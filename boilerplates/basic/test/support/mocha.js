@@ -1,11 +1,13 @@
 import './jsdom';
 
+import chai from 'chai';
 import React from 'react';
 import sinon from 'sinon';
 import mockery from 'mockery';
-import testTree from 'react-test-tree'
+import testTree from 'react-test-tree';
+import sinonChai from 'sinon-chai';
 import TestUtils from 'react-addons-test-utils';
-import { expect } from 'chai'
+import { findDOMNode } from 'react-dom';
 import MyReactComponent from '../../src';
 
 function renderStateless(Component, props) {
@@ -16,7 +18,7 @@ function renderStateless(Component, props) {
 
 global.React = React;
 global.sinon = sinon;
-global.expect = expect;
+global.expect = chai.expect;
 global.mockery = mockery;
 global.testTree = testTree;
 global.TestUtils = TestUtils;
