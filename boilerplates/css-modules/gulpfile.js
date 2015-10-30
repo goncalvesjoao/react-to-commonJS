@@ -14,7 +14,7 @@ gulp.task('build-commonjs', function buildCommonJS() {
   var babel = require('gulp-babel');
 
   gulp.src([srcDir + '/**/*.js', srcDir + '/**/*.jsx'])
-      .pipe(babel())
+      .pipe(babel({ stage: 1 }))
       .pipe(gulp.dest(distDir + 'commonjs/'));
 
   // In case your code contains css files
