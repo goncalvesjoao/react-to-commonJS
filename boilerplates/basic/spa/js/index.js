@@ -1,9 +1,10 @@
 import React from 'react';
-import { config } from '../../src';
+window.React = React;
 
-// Configuring MyReactComponent
+// Configuring your module
 // window.appConfig is being populated on public/index.html
 // that in turn is being populated by spa/config/spa.js#appConfig entry.
+import { config } from '../../src';
 Object.assign(config, window.appConfig);
 
 // Bootstraping your single page app
