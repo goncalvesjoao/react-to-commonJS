@@ -1,15 +1,14 @@
 import React from 'react';
-import MyReactComponent from '../../src';
-window.MyReactComponent = MyReactComponent;
+import { config } from '../../src';
 
 // Configuring MyReactComponent
 // window.appConfig is being populated on public/index.html
 // that in turn is being populated by spa/config/spa.js#appConfig entry.
-Object.assign(MyReactComponent.config, window.appConfig);
+Object.assign(config, window.appConfig);
 
 // Bootstraping your single page app
 import ReactDom from 'react-dom';
-const { routes } = require('./spa');
+import { routes } from './spa';
 import { Router } from 'react-router';
 import { createHistory, useBasename } from 'history';
 

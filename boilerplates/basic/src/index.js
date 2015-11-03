@@ -1,7 +1,4 @@
-import config from './config';
-import components from './components';
+import Droids from './components/Droids';
 
-export default {
-  config,
-  components,
-};
+export config from './config';
+export default Droids;

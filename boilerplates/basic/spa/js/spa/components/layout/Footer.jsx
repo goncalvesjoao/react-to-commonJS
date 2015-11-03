@@ -1,6 +1,6 @@
 import React from 'react';
+import { config } from '../../../../../src';
 
-const { config } = MyReactComponent;
 let author = '<package.json:author>';
 
 if (config.author) { author = config.author; }

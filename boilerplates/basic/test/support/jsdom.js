@@ -1,4 +1,4 @@
-const jsdom = require('jsdom').jsdom;
+import { jsdom } from 'jsdom';
 
 global.document = jsdom('<!doctype html><html><body></body></html>');
 

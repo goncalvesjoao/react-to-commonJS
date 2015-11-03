@@ -1,9 +1,8 @@
-const { config } = MyReactComponent;
-
 import React from 'react';
 import LiLink from '../../LiLink';
 import styles from '../../../styles/style.css';
 import CSSModules from 'react-css-modules';
+import { config } from '../../../../../../src';
 
 @CSSModules(styles)
 class Header extends React.Component {

@@ -8,7 +8,6 @@ import testTree from 'react-test-tree';
 import sinonChai from 'sinon-chai';
 import TestUtils from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
-import MyReactComponent from '../../src';
 
 function renderStateless(Component, props) {
   const wrapper = TestUtils.renderIntoDocument(<div><Component { ...props } /></div>);
@@ -23,4 +22,3 @@ global.mockery = mockery;
 global.testTree = testTree;
 global.TestUtils = TestUtils;
 global.renderStateless = renderStateless;
-global.MyReactComponent = MyReactComponent;

@@ -1,7 +1,6 @@
-const { Droids } = MyReactComponent.components;
-
 import React from 'react';
 import Prism from '../../Prism';
+import Droids from '../../../../../../src';
 import { Label } from 'react-bootstrap';
 
 class DroidsExample extends React.Component {

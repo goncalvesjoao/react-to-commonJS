@@ -16,7 +16,6 @@
   'globals': {
     "React": true,
     "ReactRouter": true,
-    "MyReactComponent": true,
 
     "sinon": true,
     "expect": true,

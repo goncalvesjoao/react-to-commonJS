@@ -1,7 +1,6 @@
-const { config } = MyReactComponent;
-
 import React from 'react';
 import Prism from './Prism';
+import { config } from '../../../../src';
 
 class Home extends React.Component {
 

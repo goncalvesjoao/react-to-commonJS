@@ -1,4 +1,4 @@
-const { Droids } = MyReactComponent.components;
+import Droids from '../../src/components/Droids';
 const mockedDroids = [
   { id: 1, name: 'r2d2', avatar: 'none' },
   { id: 2, name: 'c-3po', avatar: 'none' },
