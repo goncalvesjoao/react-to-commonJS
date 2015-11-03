@@ -4,8 +4,8 @@ window.React = React;
 // Configuring your module
 // window.appConfig is being populated on public/index.html
 // that in turn is being populated by spa/config/spa.js#appConfig entry.
-import { config } from '../../src';
-Object.assign(config, window.appConfig);
+import { setConfig, config } from '../../src';
+setConfig(window.appConfig);
 
 // Bootstraping your single page app
 import ReactDom from 'react-dom';

@@ -1,4 +1,10 @@
+import config from './config';
 import Droids from './components/Droids';
 
-export config from './config';
+export function setConfig(newConfig) {
+  Object.assign(config, newConfig);
+}
+
+export { config as config };
+
 export default Droids;
