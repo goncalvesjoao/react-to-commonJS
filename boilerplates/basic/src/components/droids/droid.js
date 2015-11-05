@@ -11,7 +11,7 @@ class Droid extends React.Component {
 
     return (
       <p className="text-center">
-        <span ref="name" className="label label-info">
+        <span name="droid-name" className="label label-info">
           { this.props.droid.name }
         </span>
       </p>
@@ -22,7 +22,6 @@ class Droid extends React.Component {
     return (
       <li>
         <img
-          ref="avatar"
           className="img-circle"
           style={{ width: '80px' }}
           src={ this.props.droid.avatar }

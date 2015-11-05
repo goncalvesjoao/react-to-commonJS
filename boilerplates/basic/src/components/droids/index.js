@@ -30,7 +30,7 @@ class Droids extends React.Component {
 
   render() {
     return (
-      <ul className="list-inline" refCollection="droids">
+      <ul className="list-inline">
         { this.renderDroids() }
       </ul>
     );

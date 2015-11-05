@@ -8,10 +8,8 @@ import DroidsExample from './components/ApiDocs/components/DroidsExample';
 const routes = {
   component: Layout,
   childRoutes: [
-    {
-      path: '/',
-      component: Home,
-    },
+    { path: '/', component: Home },
+    { path: '/index.html', onEnter: (nextState, replaceState) => replaceState(null, '/') },
     {
       path: '/api_docs',
       component: ApiDocs,
@@ -31,10 +29,7 @@ const routes = {
         },
       ],
     },
-    {
-      path: '*',
-      component: NotFound,
-    },
+    { path: '*', component: NotFound },
   ],
 };
 

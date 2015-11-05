@@ -12,7 +12,7 @@ module.exports = {
     baseHref: '/',
   }),
 
-  eslint: true,
+  eslint: false,
 
   serverPort: 9000,
 

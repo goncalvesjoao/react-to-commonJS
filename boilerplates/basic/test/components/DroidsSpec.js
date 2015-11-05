@@ -1,3 +1,4 @@
+import Droid from '../../src/components/Droids/Droid';
 import Droids from '../../src/components/Droids';
 const mockedDroids = [
   { id: 1, name: 'r2d2', avatar: 'none' },
@@ -14,25 +15,25 @@ describe('Droids', () => {
 
   context('when no props are used', () => {
     it('a list of droids with names should be returned', () => {
-      const droids = testTree(<Droids />);
+      const $droids = $(<Droids />).render();
 
-      expect(droids.get('droids').length).to.equal(2);
+      expect($droids.find(Droid).length).to.equal(2);
 
-      droids.get('droids').map((droid) => {
-        expect(droid.get('name')).to.exist;
-      });
+      $droids.find(Droid).each((node, index, collection) => {
+        expect($(node).find('[name="droid-name"]').text()).to.not.equal('');
+      })
     });
   });
 
   context('when props.name = false', () => {
     it('a list of droids without names should be returned', () => {
-      const droids = testTree(<Droids name={ false } />);
+      const $droids = $(<Droids name={ false } />).render();
 
-      expect(droids.get('droids').length).to.equal(2);
+      expect($droids.find(Droid).length).to.equal(2);
 
-      droids.get('droids').map((droid) => {
-        expect(droid.get('name')).to.not.exist;
-      });
+      $droids.find(Droid).each((node, index, collection) => {
+        expect($(node).find('[name="droid-name"]').text()).to.equal('');
+      })
     });
   });
 });

@@ -135,27 +135,5 @@ $> npm run build-docs
 
 ## Notes:
 This tool was built using:
-- node 4.1.0
-- npm 3.3.3
-
-## Node troubleshoot:
-If you are having problems with your node version and/or can't install npm version 3, here is what helped me:
-
-- Remove node:
-```
-$> rm -rf /usr/local/lib/node_modules
-$> brew uninstall node
-```
-Use this to help remove what is left of node https://github.com/brock/node-reinstall
-
-- Install latest node from https://nodejs.org/en/
-
-- Install npm 3:
-```
-$> echo prefix=~/.node >> ~/.npmrc
-$> curl -L https://www.npmjs.com/install.sh | sh
-```
-
-I came to this recipe through these links:
-- https://gist.github.com/DanHerbert/9520689
-- http://stackoverflow.com/questions/11177954/how-do-i-completely-uninstall-node-js-and-reinstall-from-beginning-mac-os-x
+- node 5.0
+- npm 3.3.6
