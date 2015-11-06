@@ -9,6 +9,8 @@ import sinonChai from 'sinon-chai';
 import TestUtils from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
 
+chai.use(sinonChai);
+
 function renderStateless(Component, props) {
   const wrapper = TestUtils.renderIntoDocument(<div><Component { ...props } /></div>);
 
