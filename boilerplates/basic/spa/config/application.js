@@ -16,6 +16,6 @@ module.exports = {
 
   serverPort: 9000,
 
-  vendorDependencies: Object.keys(myReactComponentPackageJson.dependencies),
+  vendorDependencies: Object.keys(myReactComponentPackageJson.dependencies || {}),
 
 };
