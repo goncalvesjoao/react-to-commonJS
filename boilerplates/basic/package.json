@@ -54,11 +54,11 @@
     "teaspoon": "5.0.1",
     "sinon-chai": "2.8.0",
     "babel-istanbul": "0.3.20",
-    "react-addons-test-utils": "0.14.0"
+    "react-addons-test-utils": "0.14.2"
   },
 
   "dependencies": {
-    "react": "0.14.0",
+    "react": "0.14.2",
     "jquery": "2.1.4"
   }
 }

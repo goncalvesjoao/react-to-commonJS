@@ -32,9 +32,9 @@
     "webpack-hot-middleware": "2.4.1",
     "extract-text-webpack-plugin": "0.8.2",
 
-    "react": "0.14.0",
+    "react": "0.14.2",
     "lodash": "3.10.1",
-    "react-dom": "0.14.0",
+    "react-dom": "0.14.2",
     "react-router": "1.0.0-rc3",
     "react-bootstrap": "0.27.1",
     "react-css-modules": "3.5.2"
