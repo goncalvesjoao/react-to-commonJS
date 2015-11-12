@@ -32,8 +32,13 @@ function fail(message) {
 }
 
 function processFile(projectName, newFile) {
-  newFile.path = newFile.path.replace(projectName.boilerplateName.snakeCase,
-                                      projectName.snakeCase);
+  newFile.path = newFile
+    .path
+    .replace(projectName.boilerplateName.snakeCase, projectName.snakeCase);
+
+  newFile.path = newFile
+    .path
+    .replace(projectName.boilerplateName.kebabCase, projectName.kebabCase);
 
   if (newFile.contents) {
     newFile.contents = projectName.replaceBoilerplateName(newFile.contents,
