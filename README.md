@@ -65,7 +65,7 @@ $> cd my_component
 $> npm start
 <open browser on http:localhost:9000>
 ```
-- A **gulp** task will launch **browser-sync** that in turn will serve the **SPA** on **localhost:9000**. You can change the server port in *spa/config/spa.js* file and run **npm start** again.
+- A **gulp** task will launch **browser-sync** that in turn will serve the **SPA** on **localhost:9000**. You can change the server port in *spa/config/application.js* file and run **npm start** again.
 
 - The contents of *spa/css*, *spa/js* and *spa/public/* directories will all be processed and converted to proper html, css and javascript that the browser can understand. These files will be then copied to *spa/tmp* directory (ignored by .gitignore).
 
@@ -75,11 +75,11 @@ $> npm start
 
 - **Webpack** will be watching both the *spa/js* and your *src* directory, transpiling the code to plain javascript and updating your browser automatically, through **react-hot-loader**.
 
-- **Eslint** can be connected to **Webpack** to let you know when your changes do not meet the [Airbnb javascript  style guide](https://github.com/airbnb/javascript) (you can enable it in *spa/config/spa.js*).
+- **Eslint** can be connected to **Webpack** to let you know when your changes do not meet the [Airbnb javascript  style guide](https://github.com/airbnb/javascript) (you can enable it in *spa/config/application.js*).
 
-- A **mock server** will be raise for each *spa/mock_servers/index.js* entry with the same port has the entry's port attribute. Each **mock server** file (listed on *spa/mock_servers/index.js*) will receive an **expressJS** instance and from that you get all the control you need to mock you API. (If you have no need for mock servers, you can just delete the *spa/mock_servers* directory).
+- An expressJS instance will be raised and will include all of the *spa/mock_servers/* files. Each **mock server** file will receive that **expressJS** instance and from that you get all the control you need to mock you API. (If you have no need for mock servers, you can just delete the *spa/mock_servers* directory, you can change the mockServer port at *spa/config/application.js*).
 
-- Each **expressJS** instance is already configured with **cors** to accept your **localhost:9000** requests and with **body-parser** to properly understand your requests submitted body. (If you need to make changes regarding these type of configurations checkout the *spa/gulpfile.js@launchMockServers* function)
+- Each **expressJS** instance is already configured with **cors** to accept your **localhost:9000** requests and with **body-parser** to properly understand your requests submitted body, checkout [mocking-birds](https://github.com/goncalvesjoao/mocking-birds) repo for more detail.
 
 ### 3. Testing
 ```
@@ -128,7 +128,7 @@ $> npm run build-docs
 ```
 - A static version of the SPA will be exported to *docs* directory, so you can use it has a real web page for you to document or show examples on how to use your React Component.
 - Uploading the *docs* files on **Github Pages** will work just fine except for the **mock-servers**, but in this case you will probably be using a real API and not your mocks.
-- If your SPA files' location will not be the root path of your domain (e.g: domain.io/my_component), be sure to change **baseHref** entry on *spa/config/spa.js* (to "/my_component/") this will alter the path of your links and routes. If you change the **development#baseHref** entry, the command **npm start** will start to serve your SPA on **localhost:9000/my_component**. If you change the **production#baseHref** entry, the exported files of **npm run build-docs** will be pointing to that new path.
+- If your SPA files' location will not be the root path of your domain (e.g: domain.io/my_component), be sure to change **baseHref** entry on *spa/config/application.js* (to "/my_component/") this will alter the path of your links and routes. If you change the **development#baseHref** entry, the command **npm start** will start to serve your SPA on **localhost:9000/my_component**. If you change the **production#baseHref** entry, the exported files of **npm run build-docs** will be pointing to that new path.
 
 ### 6. Importing your React Component on another project
 - TODO
