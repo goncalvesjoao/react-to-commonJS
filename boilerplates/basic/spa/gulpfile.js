@@ -118,27 +118,11 @@ function launchServer() {
 }
 
 function launchMockServers() {
-  var mockServers = require('./mockServers');
-
-  mockServers.forEach(function(mockServer) {
-    var app         = require('express')(),
-        cors        = require('cors'),
-        bodyParser  = require('body-parser'),
-        whitelist   = ['http://localhost:' + application.serverPort],
-        options     = {
-          origin: function(origin, callback) {
-            callback(null, (whitelist.indexOf(origin) !== -1));
-          }
-        };
-
-    app.use(cors(options));
-    app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded({ extended: true }));
-
-    mockServer.server(app);
-
-    app.listen(mockServer.port);
-  });
+  require('mocking-birds')(
+    './mockServers',
+    9090,
+    ['http://localhost:' + application.serverPort]
+  );
 }
 
 function updateBrowser() {
