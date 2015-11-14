@@ -120,7 +120,7 @@ function launchServer() {
 function launchMockServers() {
   require('mocking-birds')(
     './mockServers',
-    9090,
+    application.mockServerPort,
     ['http://localhost:' + application.serverPort]
   );
 }

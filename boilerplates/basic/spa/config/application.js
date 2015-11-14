@@ -12,9 +12,11 @@ module.exports = {
     baseHref: '/',
   }),
 
-  eslint: false,
+  eslint: true,
 
   serverPort: 9000,
+
+  mockServerPort: 9090,
 
   vendorDependencies: Object.keys(myReactComponentPackageJson.dependencies || {}),
 

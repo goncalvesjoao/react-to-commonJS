@@ -7,7 +7,7 @@ const defaultProps = {
 class Droid extends React.Component {
 
   renderName() {
-    if (!this.props.name) { return null; }
+    if (!this.props.name) { return <noscript />; }
 
     return (
       <p className="text-center">

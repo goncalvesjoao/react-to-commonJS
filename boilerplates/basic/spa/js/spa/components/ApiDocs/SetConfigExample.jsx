@@ -8,10 +8,7 @@ class ConfigExample extends React.Component {
     return (
       <div>
         <Prism className="language-jsx">
-          {
-            `import MyReactComponent from 'my-react-component';
-const { config } = MyReactComponent;`
-          }
+          { `import { setConfig } from 'my-react-component';` }
         </Prism>
 
         <p>&nbsp;</p>
@@ -23,15 +20,14 @@ const { config } = MyReactComponent;`
           </div>
 
           <div className="panel-body">
-            <p>Everytime <b>MyReactComponent.components.Droids#componentWillMount</b> executes it will make a remote request to <b>http://starwars.fake.api.com/droids.json</b>, to fetch the droids' list.</p>
+            <p>Everytime <b>Droids#componentWillMount</b> executes it will make a remote request to <b>{ `{ config.url }` }/droids.json</b>, to fetch the droids' list.</p>
+            <p>You can alter it through the <b>setConfig</b> function.</p>
           </div>
 
           <div className="panel-footer">
             <Label bsSize="small">Code:</Label>
             <Prism className="language-jsx">
-              {
-                `config.url = 'http://starwars.fake.api.com/';`
-              }
+              { `setConfig({ url: 'http://starwars.fake.api.com/' });` }
             </Prism>
           </div>
         </div>

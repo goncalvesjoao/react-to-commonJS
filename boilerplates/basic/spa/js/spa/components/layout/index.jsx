@@ -1,24 +1,18 @@
-import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import styles from '../../styles/style.css';
 import CSSModules from 'react-css-modules';
 
-@CSSModules(styles)
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <Header />
+const App = ({ children }) => (
+  <div>
+    <Header />
 
-        <div styleName="mainContainer">
-          { this.props.children }
-        </div>
+    <div styleName="mainContainer">
+      { children }
+    </div>
 
-        <Footer />
-      </div>
-    );
-  }
-}
+    <Footer />
+  </div>
+);
 
-export default App;
+export default CSSModules(styles)(App);

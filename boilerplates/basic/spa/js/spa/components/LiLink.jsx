@@ -1,21 +1,21 @@
 import React from 'react';
-import { Link, History } from 'react-router';
+import { Link, History, IndexLink } from 'react-router';
 
 const LiLink = React.createClass({
 
   mixins: [History],
 
   render() {
-    let isActive = this.history.isActive(this.props.to, this.props.query);
+    const isActive =
+      this.history.isActive(this.props.to, this.props.query, this.props.index);
 
-    if (this.props.to === '/') {
-      isActive = (window.appConfig.baseHref === location.pathname);
-    }
-
-    return (
-      <li className={ isActive ? 'active' : '' }>
-        <Link { ...this.props } activeClassName="active" />
-      </li>
+    return React.createElement(
+      'li',
+      { className: isActive ? 'active' : '' },
+      React.createElement(
+        this.props.index ? IndexLink : Link,
+        { activeClassName: 'active', ...this.props }
+      )
     );
   },
 

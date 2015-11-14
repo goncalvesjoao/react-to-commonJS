@@ -1,10 +1,71 @@
 import React from 'react';
+import Prism from '../Prism';
 import LiLink from '../LiLink';
-import { History } from 'react-router';
+import Droids from '../../../../../src';
+import { Label } from 'react-bootstrap';
+import { IndexLink } from 'react-router';
 
-const ApiDocs = React.createClass({
+class ApiDocs extends React.Component {
 
-  mixins: [History],
+  renderHome() {
+    return (
+      <div>
+        <Prism className="language-jsx">
+          { `import MyReactComponent from 'my-react-component';` }
+        </Prism>
+
+        <p>&nbsp;</p>
+        <p className="lead">Examples:</p>
+
+        <div className="panel panel-default">
+          <div className="panel-heading">
+            <h3 className="panel-title">Default mode</h3>
+          </div>
+
+          <div className="panel-body">
+            <Droids />
+          </div>
+
+          <div className="panel-footer">
+            <Label bsSize="small">Code:</Label>
+            <Prism className="language-jsx">
+              { `<Droids />` }
+            </Prism>
+          </div>
+        </div>
+
+        <div className="panel panel-default">
+          <div className="panel-heading">
+            <h3 className="panel-title">Disable display name</h3>
+          </div>
+
+          <div className="panel-body">
+            <Droids name={ false } />
+          </div>
+
+          <div className="panel-footer">
+            <Label bsSize="small">Code:</Label>
+            <Prism className="language-jsx">
+              { `<Droids name={ false } />` }
+            </Prism>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  renderSidebar() {
+    return (
+      <ul className="ascii fixed">
+        <li>
+          <IndexLink activeClassName="active" to="/api_docs">MyReactComponent</IndexLink>
+          <ul>
+            <LiLink to="/api_docs/set_config">setConfig</LiLink>
+          </ul>
+        </li>
+      </ul>
+    );
+  }
 
   render() {
     return (
@@ -25,42 +86,7 @@ const ApiDocs = React.createClass({
 
       </div>
     );
-  },
-
-  renderHome() {
-    return (
-      <div className="jumbotron">
-        <h1>MyReactComponent API</h1>
-        <h2 className="lead">
-          This API documentation example page,
-          ilustrates how you can take advantage of this Single Page App
-          created for you to test your React Component and
-          actually use it to document your work and publish it on the Web.
-        </h2>
-      </div>
-    );
-  },
-
-  renderSidebar() {
-    return (
-      <ul className="ascii fixed">
-        <li>
-          <span>MyReactComponent</span>
-          <ul>
-            <LiLink to="/api_docs/config">config</LiLink>
-
-            <li className={ this.history.isActive('/api_docs/components') ? 'active' : '' }>
-              <span>components</span>
-              <ul>
-                <LiLink to="/api_docs/components/droids">Droids</LiLink>
-              </ul>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    );
-  },
-
-});
+  }
+}
 
 export default ApiDocs;

@@ -5,7 +5,7 @@ function developmentConfig(config) {
   return _.assign({}, config, {
     environment: 'development',
 
-    url: 'http://localhost:9090/',
+    url: 'http://localhost:9090/my-react-component/',
   });
 
 }
