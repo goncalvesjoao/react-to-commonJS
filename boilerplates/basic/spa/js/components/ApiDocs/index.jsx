@@ -1,7 +1,7 @@
 import React from 'react';
 import Prism from '../Prism';
 import LiLink from '../LiLink';
-import Droids from '../../../../../src';
+import Droids from '../../../../src';
 import { Label } from 'react-bootstrap';
 import { IndexLink } from 'react-router';
 
@@ -29,7 +29,7 @@ class ApiDocs extends React.Component {
           <div className="panel-footer">
             <Label bsSize="small">Code:</Label>
             <Prism className="language-jsx">
-              { `<Droids />` }
+              { `<MyReactComponent />` }
             </Prism>
           </div>
         </div>
@@ -46,7 +46,7 @@ class ApiDocs extends React.Component {
           <div className="panel-footer">
             <Label bsSize="small">Code:</Label>
             <Prism className="language-jsx">
-              { `<Droids name={ false } />` }
+              { `<MyReactComponent name={ false } />` }
             </Prism>
           </div>
         </div>

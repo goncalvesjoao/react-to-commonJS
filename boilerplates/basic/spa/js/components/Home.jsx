@@ -1,6 +1,6 @@
 import React from 'react';
 import Prism from './Prism';
-import { config } from '../../../../src';
+import { config } from '../../../src';
 
 class Home extends React.Component {
 
@@ -16,6 +16,7 @@ class Home extends React.Component {
                   { config.description }
                 </p>
               </div>
+
               <div className="col-md-5 jumbotron-side text-center">
                 <p>&nbsp;</p>
                 <p>{ this.repositoryLink() }</p>
@@ -33,6 +34,21 @@ class Home extends React.Component {
           <p>or</p>
           <Prism className="language-ruby" noShadow={ true } bashMode={ true }>
               npm install git+https://git@github.com:{ config.author || '<package.json:author>' }/{ config.name || '<package.json:name>' }.git#master --save
+          </Prism>
+
+          <p>&nbsp;</p>
+          <h2>Usage:</h2>
+          <Prism className="language-jsx">
+            {
+              `import React from 'react';
+import MyReactComponent from 'my-react-component';
+
+class App extends React.Component {
+  render() {
+    return <MyReactComponent />;
+  }
+}`
+            }
           </Prism>
         </div>
       </div>

@@ -1,6 +1,6 @@
 {
   "name": "spa",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "single page app to help develop, test and document your React Component",
   "repository": {
     "type": "git",
@@ -30,10 +30,10 @@
     "webpack-hot-middleware": "2.4.1",
     "extract-text-webpack-plugin": "0.8.2",
 
-    "react": "0.14.2",
+    "react": "0.14.3",
     "lodash": "3.10.1",
     "history": "1.13.1",
-    "react-dom": "0.14.2",
+    "react-dom": "0.14.3",
     "react-router": "1.0.0",
     "react-bootstrap": "0.27.1",
     "react-css-modules": "3.5.2"

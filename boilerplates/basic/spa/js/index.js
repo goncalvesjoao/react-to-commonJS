@@ -8,8 +8,8 @@ import { setConfig } from '../../src';
 setConfig(window.appConfig);
 
 // Bootstraping your single page app
+import routes from './routes';
 import ReactDom from 'react-dom';
-import { routes } from './spa';
 import { Router } from 'react-router';
 import { createHistory, useBasename } from 'history';
 

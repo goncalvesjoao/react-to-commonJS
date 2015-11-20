@@ -1,4 +1,4 @@
-import { config } from '../../../../../src';
+import { config } from '../../../../src';
 
 const Footer = () => (
   <footer className="container">
