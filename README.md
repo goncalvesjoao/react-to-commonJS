@@ -137,3 +137,10 @@ $> npm run build-docs
 This tool was built using:
 - node 5.0
 - npm 3.3.6
+
+## Node troubleshoot:
+If you are having permission issues, set your global node folder like this:
+```
+$> echo prefix=~/.node >> ~/.npmrc
+```
+and you should have no problems installing packages with the --global flag.
