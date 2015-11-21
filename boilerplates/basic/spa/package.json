@@ -1,6 +1,6 @@
 {
   "name": "spa",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "single page app to help develop, test and document your React Component",
   "repository": {
     "type": "git",
@@ -8,10 +8,11 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "rm -rdf ./tmp && ./node_modules/.bin/gulp",
-    "build": "rm -rdf ../docs && ./node_modules/.bin/gulp build"
+    "start": "./node_modules/.bin/gulp",
+    "build-docs": "./node_modules/.bin/gulp build-docs"
   },
   "dependencies": {
+    "del": "2.1.0",
     "gulp": "3.9.0",
     "babel": "5.8.23",
     "webpack": "1.12.2",

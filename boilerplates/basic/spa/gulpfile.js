@@ -1,4 +1,5 @@
 var fs = require('fs');
+var del = require('del');
 var gulp = require('gulp');
 var srcDir = './';
 var configDir = './config/';
@@ -7,8 +8,10 @@ var browserSync = require('browser-sync').create();
 var environment = 'development';
 var distDir = './tmp' + application.appConfig[environment].baseHref;
 
-gulp.task('build', build);
+gulp.task('build-docs', ['clean:docs'], build);
 gulp.task('server', launchServer);
+gulp.task('clean:tmp', function() { return del(['./tmp/**/*']); });
+gulp.task('clean:docs', function() { return del(['../docs/**/*'], { force:  true }); });
 gulp.task('copy-public', copyPublic);
 gulp.task('compile-css', compileCss);
 gulp.task('compile-html', compileHtml);
@@ -19,7 +22,8 @@ gulp.task('watch', function() {
   gulp.watch([srcDir + 'public/**/*', '!' + srcDir + 'public/**/*.html'], copyPublic);
 });
 
-var defaultTasks = ['copy-public', 'compile-html', 'compile-css', 'server', 'watch'];
+
+var defaultTasks = ['clean:tmp', 'copy-public', 'compile-html', 'compile-css', 'server', 'watch'];
 if (fs.existsSync('./mockServers')) { defaultTasks.push('mock-servers'); }
 gulp.task('default', defaultTasks);
 

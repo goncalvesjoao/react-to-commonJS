@@ -35,21 +35,7 @@ class Home extends React.Component {
           <Prism className="language-ruby" noShadow={ true } bashMode={ true }>
               npm install git+https://git@github.com:{ config.author || '<package.json:author>' }/{ config.name || '<package.json:name>' }.git#master --save
           </Prism>
-
           <p>&nbsp;</p>
-          <h2>Usage:</h2>
-          <Prism className="language-jsx">
-            {
-              `import React from 'react';
-import MyReactComponent from 'my-react-component';
-
-class App extends React.Component {
-  render() {
-    return <MyReactComponent />;
-  }
-}`
-            }
-          </Prism>
         </div>
       </div>
     );

@@ -22,7 +22,7 @@ function newCommand(projectName, options) {
   console.log('  - Done\n');
 
   if (!options.noinstall) {
-    console.log('  - Running "npm install" ...');
+    console.log('  - Running "npm install" (this might take a while...)');
     newProject.npmInstall(newProject.congratulations);
   }
 }

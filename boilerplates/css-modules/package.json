@@ -13,23 +13,24 @@
   "//": "delete the 'start', 'spa', 'build-docs' entries if you don't need a web site to testing or document your react component",
   "scripts": {
     "start": "npm run spa",
-    "spa": "rm -rf ./spa/tmp && ./node_modules/.bin/gulp --gulpfile ./spa/gulpfile.js",
-    "build-docs": "rm -rf ./docs && ./node_modules/.bin/gulp build --gulpfile ./spa/gulpfile.js",
+    "spa": "./node_modules/.bin/gulp --gulpfile ./spa/gulpfile.js",
+    "build-docs": "./node_modules/.bin/gulp build-docs --gulpfile ./spa/gulpfile.js",
 
-    "build": "npm run build-commonjs && ./node_modules/.bin/gulp build-standalone",
-    "build-commonjs": "rm -rf ./dist/commonjs && ./node_modules/.bin/gulp build-commonjs",
-    "build-standalone": "rm -rf ./dist/standalone && ./node_modules/.bin/gulp build-standalone",
+    "build": "./node_modules/.bin/gulp build",
+    "build-commonjs": "./node_modules/.bin/gulp build-commonjs",
+    "build-standalone": "./node_modules/.bin/gulp build-standalone",
 
     "quick-test": "./node_modules/.bin/mocha ./test/**/*Spec.js",
-    "test": "rm -rf ./coverage && node ./node_modules/.bin/babel-istanbul cover ./node_modules/.bin/_mocha ./test/**/*Spec.js",
+    "test": "node ./node_modules/.bin/babel-istanbul cover ./node_modules/.bin/_mocha ./test/**/*Spec.js",
 
-    "lint": "./node_modules/.bin/eslint ./src/ ./test/"
+    "lint": "./node_modules/.bin/eslint ./src/"
   },
 
   "//": "delete the 'spa' devDependencies entry if you don't need a web site to testing or document your react component",
   "devDependencies": {
     "spa": "file:./spa",
 
+    "del": "2.1.0",
     "gulp": "3.9.0",
     "babel": "5.8.23",
     "webpack": "1.12.2",
@@ -51,6 +52,7 @@
     "mocha": "2.3.3",
     "sinon": "1.17.1",
     "mockery": "1.4.0",
+    "teaspoon": "5.0.1",
     "sinon-chai": "2.8.0",
     "babel-istanbul": "0.3.20",
     "react-addons-test-utils": "0.14.0",

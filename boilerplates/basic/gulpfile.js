@@ -1,3 +1,4 @@
+var del = require('del');
 var gulp = require('gulp');
 var srcDir = './src/';
 var distDir = './dist/';
@@ -7,10 +8,12 @@ var packageJson = require('./package.json');
 // true if you want all of your dependencies to be bundled on a vendor.js file
 var bundleDependenciesSeparately = false;
 
-gulp.task('default', ['run']);
-gulp.task('run', ['build-commonjs', 'build-standalone']);
+gulp.task('default', ['build']);
+gulp.task('build', ['build-commonjs', 'build-standalone']);
+gulp.task('clean:dist:commonjs', function() { return del(['./dist/commonjs/**/*']); });
+gulp.task('clean:dist:standalone', function() { return del(['./dist/standalone/**/*']); });
 
-gulp.task('build-commonjs', function buildCommonJS() {
+gulp.task('build-commonjs', ['clean:dist:commonjs'], function buildCommonJS() {
   var babel = require('gulp-babel');
 
   gulp.src([srcDir + '/**/*.js', srcDir + '/**/*.jsx'])
@@ -22,7 +25,7 @@ gulp.task('build-commonjs', function buildCommonJS() {
       .pipe(gulp.dest(distDir + 'commonjs/'));
 });
 
-gulp.task('build-standalone', function buildStandalone() {
+gulp.task('build-standalone', ['clean:dist:standalone'], function buildStandalone() {
   gulp.src(srcDir + 'index.js')
       .pipe(webpackTask())
       .pipe(gulp.dest(distDir + 'standalone/bundle'));
