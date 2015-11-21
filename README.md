@@ -143,4 +143,10 @@ If you are having permission issues, set your global node folder like this:
 ```
 $> echo prefix=~/.node >> ~/.npmrc
 ```
-and you should have no problems installing packages with the --global flag.
+and add "~/.node/bin" to your $PATH by adding:
+```
+export PATH=~/.node/bin:$PATH
+```
+to your *~/.bash_profile* or *~/.bash_rc* file.
+
+You should have no problems installing packages with the --global flag now.
